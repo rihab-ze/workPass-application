@@ -1,0 +1,72 @@
+extends DataClass
+
+function event restrict() -> result : cs.SettingSelection
+	var currentUser : cs.EmployeeEntity =  ds.Employee.getCurrentUser()
+	switch
+		: (session.hasPrivilege("Admin"))
+			return null
+		: (session.hasPrivilege("Employees"))
+			return this.query("employee.UUID = :1", currentUser.UUID)
+		: (session.hasPrivilege("Manager"))
+			return this.query("employee.UUID = :1 or employee.team.manager.UUID = :1", ds.Employee.getCurrentUser().UUID)
+	end
+
+exposed function applyStatus(sDate : date, eDate : date, onSiteEmployees : cs.EmployeeSelection, remoteEmployees : cs.EmployeeSelection)
+	var employee : cs.EmployeeEntity
+	var dates : collection = newCollection(sDate, eDate)
+	var status : cs.StatusEntity = this.new()
+	var status2 : cs.StatusEntity = this.new()
+	var stat : cs.StatusEntity
+	var result : object
+	var selectedDates, selectedDates2 : collection
+	var isDeleted : boolean = false
+	var isChanged : boolean = false
+	var remoteOnsiteStatus, vacaySickStatus, existedStatus : cs.StatusSelection
+	var label : string = onSiteEmployees.length != 0 ? "onSite" : "remote"
+	
+	forEach (employee, onSiteEmployees.length != 0 ? onSiteEmployees : remoteEmployees)
+		existedStatus = employee.status.query("(sDate  <= :1 && eDate  >= :1) || (sDate  <= :2 && eDate  >= :2) || (sDate >= :1 && eDate <= :2) ", sDate, eDate)
+		remoteOnsiteStatus = existedStatus.query("label = 'remote' || label = 'onSite' ")
+		forEach (stat, remoteOnsiteStatus)
+			if ((stat.sDate >= sDate) && (stat.eDate <= eDate) && (stat.label != ("vacay" || "sick")))
+				isDeleted = true
+				stat.drop()
+			end 
+			if ((stat.eDate >= eDate) && (stat.label != ("vacay" || "sick")) && not(isDeleted))
+				stat.sDate = eDate+1
+				stat.save()
+			end 
+			if (stat.eDate <= sDate && (stat.label != ("vacay" || "sick")) && not(isDeleted))
+				stat.eDate = sDate-1
+				stat.save()
+			end 
+		end 
+		vacaySickStatus = existedStatus.query("label = 'vacay' || label = 'sick' ")
+		forEach (stat, vacaySickStatus)
+			if (eDate >= stat.eDate)
+				selectedDates2 = newCollection(stat.eDate+1, eDate)
+				status.label = label
+				status.create(selectedDates2, employee)
+				isChanged = true
+				webForm.setMessage("the status has been declared")
+			end 
+			if (sDate <= stat.sDate)
+				selectedDates = newCollection(sDate, stat.sDate-1)
+				status2.label = label
+				status2.create(selectedDates, employee)
+				isChanged = true
+				webForm.setMessage("the status has been declared")
+				
+			end 
+		end 
+		if (not(isChanged))
+			status.label = label
+			status.create(dates, employee)
+			webForm.setMessage("the status has been declared")
+			
+		end 
+	end 
+	return ds.Status.all().query("employee.UUID == :1", ds.Employee.getCurrentUser().UUID)
+
+	
+	

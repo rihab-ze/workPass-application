@@ -1,0 +1,1077 @@
+{
+	"toJSON": true,
+	"extraProperties": {
+		"journal_file": {
+			"journal_file_enabled": true
+		}
+	},
+	"UUID": "f59da86087ee4ce9a8f192f5ef11cfcd",
+	"dataClasses": [
+		{
+			"name": "Employee",
+			"className": "Employee",
+			"collectionName": "EmployeeSelection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "UUID",
+					"kind": "storage",
+					"type": "uuid",
+					"scope": "public",
+					"indexKind": "auto",
+					"unique": true,
+					"not_null": true,
+					"autosequence": true,
+					"primKey": true,
+					"uuid": "2EE9825FD0364306BF5406331920453F",
+					"path": "",
+					"autogenerate": true
+				},
+				{
+					"name": "avatar",
+					"kind": "storage",
+					"type": "image",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "32845C558E004A3D9979387082707328"
+				},
+				{
+					"name": "company",
+					"kind": "relatedEntity",
+					"type": "Company",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "85BB3BC7C87B425DBF9259401E6C6337"
+				},
+				{
+					"name": "participations",
+					"kind": "relatedEntities",
+					"type": "ParticipationSelection",
+					"scope": "public",
+					"reversePath": true,
+					"exposed": true,
+					"path": "employee",
+					"uuid": "DF9A6178EA7B4B849F4CCA124560887B"
+				},
+				{
+					"name": "createdStatus",
+					"kind": "relatedEntities",
+					"type": "StatusSelection",
+					"scope": "public",
+					"reversePath": true,
+					"exposed": true,
+					"path": "createdBy",
+					"uuid": "7AC479653C5B4E458C0B4BBD0BA56B77"
+				},
+				{
+					"name": "directer_of",
+					"kind": "relatedEntities",
+					"type": "CompanySelection",
+					"scope": "public",
+					"reversePath": true,
+					"exposed": true,
+					"path": "director",
+					"uuid": "B0534DE80A004445B113B227D4F96319"
+				},
+				{
+					"name": "team",
+					"kind": "relatedEntity",
+					"path": "Team",
+					"type": "Team",
+					"scope": "public",
+					"exposed": true,
+					"uuid": "35CB1B12B5D646B39DFB9075C39601E3"
+				},
+				{
+					"name": "manager_of",
+					"kind": "relatedEntities",
+					"type": "TeamSelection",
+					"scope": "public",
+					"reversePath": true,
+					"exposed": true,
+					"path": "manager",
+					"uuid": "717095FB5E054F22B39579EC771F73CB"
+				},
+				{
+					"name": "notifications",
+					"kind": "relatedEntities",
+					"type": "NoticeSelection",
+					"scope": "public",
+					"reversePath": true,
+					"exposed": true,
+					"path": "employee",
+					"uuid": "7D254CC616AE4298ABD59DE4716CF8DA"
+				},
+				{
+					"name": "activities",
+					"kind": "relatedEntities",
+					"type": "ActivitySelection",
+					"scope": "public",
+					"reversePath": true,
+					"exposed": true,
+					"path": "employee",
+					"uuid": "39F4619A93244F5993291515CC2FCCDC"
+				},
+				{
+					"name": "createdMeetings",
+					"kind": "relatedEntities",
+					"type": "MeetingSelection",
+					"scope": "public",
+					"reversePath": true,
+					"exposed": true,
+					"path": "createdBy",
+					"uuid": "FEE843FC255446468621C2430F06FAF2"
+				},
+				{
+					"name": "email",
+					"kind": "storage",
+					"type": "string",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "7006B4172E0F45E385A771DA66F6C08D",
+					"path": ""
+				},
+				{
+					"name": "status",
+					"kind": "relatedEntities",
+					"type": "StatusSelection",
+					"scope": "public",
+					"reversePath": true,
+					"exposed": true,
+					"path": "employee",
+					"uuid": "42376E8B90EC40F4BCEC42A003073FA1"
+				},
+				{
+					"name": "room",
+					"kind": "relatedEntity",
+					"type": "Room",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "84794122D7894F838295B132EEBE6DC0"
+				},
+				{
+					"name": "code",
+					"kind": "storage",
+					"type": "string",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "DECF34645BAE4961B3BACF4352EA68F3"
+				},
+				{
+					"name": "password",
+					"kind": "storage",
+					"type": "string",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "BE1102B380484779802B50365E40F715"
+				},
+				{
+					"name": "firstname",
+					"kind": "storage",
+					"type": "string",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "3065300F6EA74CF0B2E4C90C804F8B4D"
+				},
+				{
+					"name": "lastname",
+					"kind": "storage",
+					"type": "string",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "668DF99D625E4A318F15528819B69EF8"
+				},
+				{
+					"name": "role",
+					"kind": "storage",
+					"type": "string",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "F65BE86E7B5D4A3EA69F6999BF27C830"
+				}
+			],
+			"extraProperties": {
+				"position": {
+					"x": 19.753242034584,
+					"y": -483.0948208639
+				},
+				"panelColor": "rgb(68,68,68)"
+			},
+			"uuid": "22117192AB6A4E979E339E4888619210"
+		},
+		{
+			"name": "Company",
+			"className": "Company",
+			"collectionName": "CompanySelection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "UUID",
+					"kind": "storage",
+					"type": "uuid",
+					"scope": "public",
+					"indexKind": "auto",
+					"unique": true,
+					"not_null": true,
+					"autosequence": true,
+					"primKey": true,
+					"uuid": "A6D873F4D6F24E4D910E01610B4EE063",
+					"path": "",
+					"autogenerate": true
+				},
+				{
+					"name": "employees",
+					"kind": "relatedEntities",
+					"type": "EmployeeSelection",
+					"scope": "public",
+					"reversePath": true,
+					"exposed": true,
+					"path": "company",
+					"uuid": "48C92A890488405BA0AF6A0AD6097E11"
+				},
+				{
+					"name": "name",
+					"kind": "storage",
+					"type": "string",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "CF8D2C8A522C405FAF6914557C70EF94"
+				},
+				{
+					"name": "address",
+					"kind": "storage",
+					"type": "string",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "40560C1718C544D6A8CCC0078DF690BC",
+					"path": ""
+				},
+				{
+					"name": "locals",
+					"scope": "public",
+					"type": "LocalSelection",
+					"kind": "relatedEntities",
+					"reversePath": true,
+					"exposed": true,
+					"path": "company",
+					"uuid": "4456FDC6525B4EDCA05D60B94E42839D"
+				},
+				{
+					"name": "logo",
+					"kind": "storage",
+					"type": "image",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "2B3A759F56014820A3CD0B4D7314956F"
+				},
+				{
+					"name": "director",
+					"kind": "relatedEntity",
+					"type": "Employee",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "70923BE7310F44E4AD91032F1D79ADE9",
+					"path": "Employee"
+				}
+			],
+			"extraProperties": {
+				"position": {
+					"x": 19.825717233876,
+					"y": 606.75308099522
+				},
+				"panelColor": "rgb(68,68,68)"
+			},
+			"uuid": "C14FCF7FA46B4174BD6F6266BBAEF880"
+		},
+		{
+			"name": "Status",
+			"className": "Status",
+			"collectionName": "StatusSelection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "UUID",
+					"kind": "storage",
+					"type": "uuid",
+					"scope": "public",
+					"indexKind": "auto",
+					"unique": true,
+					"not_null": true,
+					"autosequence": true,
+					"primKey": true,
+					"uuid": "D4B4E59186EB406BB0230D78CE2116F1",
+					"path": "",
+					"autogenerate": true
+				},
+				{
+					"name": "employee",
+					"kind": "relatedEntity",
+					"type": "Employee",
+					"scope": "public",
+					"reversePath": true,
+					"exposed": true,
+					"path": "Employee",
+					"uuid": "DBBC7D839F794B7BB0874BF5D3403121"
+				},
+				{
+					"name": "label",
+					"kind": "storage",
+					"type": "string",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "03BD1C2A951A428A9A63B6D25531C88F"
+				},
+				{
+					"name": "sDate",
+					"kind": "storage",
+					"type": "date",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "A1A39B905D86426DB9A462A90A792DC0"
+				},
+				{
+					"name": "createdBy",
+					"kind": "relatedEntity",
+					"type": "Employee",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "D3AD3E586F5B47ABB5F662BF83A54EC0"
+				},
+				{
+					"name": "isAccepted",
+					"kind": "storage",
+					"type": "bool",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "5700BC846F4849DDBF0ABB55A11463DF",
+					"path": ""
+				},
+				{
+					"name": "eDate",
+					"kind": "storage",
+					"type": "date",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "8F8A0882CF854FFEA671934223E25AFC"
+				},
+				{
+					"name": "noticeSelection",
+					"kind": "relatedEntities",
+					"type": "NoticeSelection",
+					"scope": "public",
+					"reversePath": true,
+					"exposed": true,
+					"path": "status",
+					"uuid": "26B6C572BAA747D08DB8A284AB86AA36"
+				},
+				{
+					"name": "activities",
+					"kind": "relatedEntities",
+					"type": "ActivitySelection",
+					"scope": "public",
+					"reversePath": true,
+					"exposed": true,
+					"path": "status",
+					"uuid": "F81B12AE363F482081E227DF4950B769"
+				}
+			],
+			"extraProperties": {
+				"position": {
+					"x": 502.01585799572,
+					"y": -105.41907533166
+				},
+				"panelColor": "rgb(68,68,68)"
+			},
+			"uuid": "4A9A78132BCD440886C5CA49B94EF0E3"
+		},
+		{
+			"name": "Meeting",
+			"className": "Meeting",
+			"collectionName": "MeetingSelection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "UUID",
+					"kind": "storage",
+					"type": "uuid",
+					"scope": "public",
+					"indexKind": "auto",
+					"unique": true,
+					"not_null": true,
+					"autosequence": true,
+					"primKey": true,
+					"uuid": "50838CFA2FDD44F0A76224F9D886C6ED",
+					"path": "",
+					"autogenerate": true
+				},
+				{
+					"name": "participations",
+					"kind": "relatedEntities",
+					"type": "ParticipationSelection",
+					"scope": "public",
+					"reversePath": true,
+					"exposed": true,
+					"path": "meeting",
+					"uuid": "B7E6B40675D54F6E9ABDA3EACF853BB4"
+				},
+				{
+					"name": "type",
+					"kind": "storage",
+					"type": "string",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "F7FCEFFFC87B49439CD20C4821464E05"
+				},
+				{
+					"name": "mDate",
+					"kind": "storage",
+					"type": "date",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "FA37E2371BE74539872CA0B490F02246",
+					"path": ""
+				},
+				{
+					"name": "startTime",
+					"kind": "storage",
+					"type": "duration",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "8981BC462CB24A6EBF91576BA077B7A7"
+				},
+				{
+					"name": "endTime",
+					"kind": "storage",
+					"type": "duration",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "6CFC77529A634B0F8291F50962227C01"
+				},
+				{
+					"name": "subject",
+					"kind": "storage",
+					"type": "string",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "E56AE673579B4A7F980F2A164F651ED9"
+				},
+				{
+					"name": "createdBy",
+					"kind": "relatedEntity",
+					"type": "Employee",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "A6B76DB8473F446D8225BD4102884FF0"
+				},
+				{
+					"name": "room",
+					"kind": "relatedEntity",
+					"type": "Room",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "43F319C04CE14EB5A9D0F2A077B0973E"
+				},
+				{
+					"name": "notification",
+					"kind": "relatedEntities",
+					"type": "NoticeSelection",
+					"scope": "public",
+					"reversePath": true,
+					"exposed": true,
+					"path": "meeting",
+					"uuid": "F1D1ACED880C4F0B8F81AD4D87BED405"
+				},
+				{
+					"name": "activities",
+					"kind": "relatedEntities",
+					"type": "ActivitySelection",
+					"scope": "public",
+					"reversePath": true,
+					"exposed": true,
+					"path": "meeting",
+					"uuid": "06E0BCBE089447D587DCEE445730E3C0"
+				},
+				{
+					"name": "link",
+					"kind": "storage",
+					"type": "string",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "AEE338FFF71847479F648C5722ED942E"
+				}
+			],
+			"extraProperties": {
+				"position": {
+					"x": 549.09736836773,
+					"y": 579.41238367508
+				},
+				"panelColor": "#29db25ff"
+			},
+			"uuid": "C07791A380704C77BA559432185F142E"
+		},
+		{
+			"name": "Local",
+			"className": "Local",
+			"collectionName": "LocalSelection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "UUID",
+					"kind": "storage",
+					"type": "uuid",
+					"scope": "public",
+					"indexKind": "auto",
+					"unique": true,
+					"not_null": true,
+					"autosequence": true,
+					"primKey": true,
+					"uuid": "1CFE137590D44A3DB2058508BAF85906",
+					"path": "",
+					"autogenerate": true
+				},
+				{
+					"name": "company",
+					"kind": "relatedEntity",
+					"path": "Company",
+					"type": "Company",
+					"scope": "public",
+					"exposed": true,
+					"uuid": "8A4C449B1AB74F32A37E6625C49EE175"
+				},
+				{
+					"name": "floors",
+					"kind": "relatedEntities",
+					"type": "FloorSelection",
+					"scope": "public",
+					"reversePath": true,
+					"exposed": true,
+					"path": "local",
+					"uuid": "A2909662E3D74709B751A987517F4212"
+				},
+				{
+					"name": "label",
+					"kind": "storage",
+					"type": "string",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "4D5767010A6F43A6B0145C73655F55C5"
+				},
+				{
+					"name": "country",
+					"kind": "storage",
+					"type": "string",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "CE21B4AC92CB499CB315CE7D43EE9175"
+				},
+				{
+					"name": "city",
+					"kind": "storage",
+					"type": "string",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "2DB2BD581B6E4F7BB5045D5A343BF09C"
+				},
+				{
+					"name": "picture",
+					"kind": "storage",
+					"type": "image",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "6F533D84174B40ABA41097DDC25CEDAD"
+				}
+			],
+			"extraProperties": {
+				"position": {
+					"x": -430.0744888249,
+					"y": 1177.5564591878
+				},
+				"panelColor": "#3b82f6ff"
+			},
+			"uuid": "584F2D5F2F2740E78247816B85924A40"
+		},
+		{
+			"name": "Participation",
+			"className": "Participation",
+			"collectionName": "ParticipationSelection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "UUID",
+					"kind": "storage",
+					"type": "uuid",
+					"scope": "public",
+					"indexKind": "auto",
+					"unique": true,
+					"not_null": true,
+					"autosequence": true,
+					"primKey": true,
+					"uuid": "231BB40DC65F49EBBFFBB39F01956843",
+					"path": "",
+					"autogenerate": true
+				},
+				{
+					"name": "employee",
+					"kind": "relatedEntity",
+					"type": "Employee",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "00490C96F7E44E70826B50251BBC0B01"
+				},
+				{
+					"name": "meeting",
+					"kind": "relatedEntity",
+					"type": "Meeting",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "9CD9965BA7774538B9C4DB7EDDEF67DD",
+					"path": "Meeting"
+				},
+				{
+					"name": "status",
+					"kind": "storage",
+					"type": "string",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "0A24959AD82849B0AD26869974307382"
+				}
+			],
+			"extraProperties": {
+				"position": {
+					"x": 893.4315171181,
+					"y": -226.90588806454
+				},
+				"panelColor": "#29db25ff"
+			},
+			"uuid": "05E8469AB5074479991A8CD3B5B6477B"
+		},
+		{
+			"name": "Team",
+			"className": "Team",
+			"collectionName": "TeamSelection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "UUID",
+					"kind": "storage",
+					"type": "uuid",
+					"scope": "public",
+					"indexKind": "auto",
+					"unique": true,
+					"not_null": true,
+					"autosequence": true,
+					"primKey": true,
+					"uuid": "4D2AB6B754674C06AF50C638326916C8",
+					"path": "",
+					"autogenerate": true
+				},
+				{
+					"name": "employees",
+					"scope": "public",
+					"type": "EmployeeSelection",
+					"kind": "relatedEntities",
+					"reversePath": true,
+					"exposed": true,
+					"path": "team",
+					"uuid": "82333438059646AF95D36AC749639A15"
+				},
+				{
+					"name": "manager",
+					"kind": "relatedEntity",
+					"type": "Employee",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "19128BE643534F38AF98E3BDBBC7058A"
+				},
+				{
+					"name": "title",
+					"kind": "storage",
+					"type": "string",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "D0714C351A0A40B3B4E3154154B3F921"
+				}
+			],
+			"extraProperties": {
+				"position": {
+					"x": -967.17800284367,
+					"y": 365.90647157753
+				},
+				"panelColor": "rgb(68,68,68)"
+			},
+			"uuid": "ACDB18D288E34BCBA860D30EF9491779"
+		},
+		{
+			"name": "Floor",
+			"className": "Floor",
+			"collectionName": "FloorSelection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "UUID",
+					"kind": "storage",
+					"type": "uuid",
+					"scope": "public",
+					"indexKind": "auto",
+					"unique": true,
+					"not_null": true,
+					"autosequence": true,
+					"primKey": true,
+					"uuid": "04EB507765DC4F11AC4712B30C025A20",
+					"path": "",
+					"autogenerate": true
+				},
+				{
+					"name": "label",
+					"kind": "storage",
+					"type": "string",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "52C4ABC1C9E34547A8B499533AAED59E"
+				},
+				{
+					"name": "local",
+					"kind": "relatedEntity",
+					"type": "Local",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "E12FD3CAAF9648B88AAAF8F0495A3A26"
+				},
+				{
+					"name": "number",
+					"kind": "storage",
+					"type": "number",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "44D968B375B644BAA13B612A865F2113"
+				},
+				{
+					"name": "rooms",
+					"kind": "relatedEntities",
+					"type": "RoomSelection",
+					"scope": "public",
+					"reversePath": true,
+					"exposed": true,
+					"path": "floor",
+					"uuid": "FF39A940F27F478794FA57B2DD4E90C6"
+				}
+			],
+			"extraProperties": {
+				"position": {
+					"x": -542.26583520338,
+					"y": 501.01624054759
+				},
+				"panelColor": "#3b82f6ff"
+			},
+			"uuid": "E18F575EE2154FC08B002ACDE17EADBD"
+		},
+		{
+			"name": "Room",
+			"className": "Room",
+			"collectionName": "RoomSelection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "UUID",
+					"kind": "storage",
+					"type": "uuid",
+					"scope": "public",
+					"indexKind": "auto",
+					"unique": true,
+					"not_null": true,
+					"autosequence": true,
+					"primKey": true,
+					"uuid": "C9C64D5047AA48B4B2041275254BFEDB",
+					"path": "",
+					"autogenerate": true
+				},
+				{
+					"name": "label",
+					"kind": "storage",
+					"type": "string",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "24B8D6291B5B4F938A4F3EB38FCB375E"
+				},
+				{
+					"name": "type",
+					"kind": "storage",
+					"type": "string",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "C996907352984CC5944C4C382A33CF61"
+				},
+				{
+					"name": "floor",
+					"kind": "relatedEntity",
+					"type": "Floor",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "4468442C7EB248A08F5876F60306C7E0"
+				},
+				{
+					"name": "employees",
+					"kind": "relatedEntities",
+					"type": "EmployeeSelection",
+					"scope": "public",
+					"reversePath": true,
+					"exposed": true,
+					"path": "room",
+					"uuid": "AE7376C562FB4E26959FCC44E7F608E4"
+				},
+				{
+					"name": "meetings",
+					"kind": "relatedEntities",
+					"type": "MeetingSelection",
+					"scope": "public",
+					"reversePath": true,
+					"exposed": true,
+					"path": "room",
+					"uuid": "5293C4AC475343908D8CBAC73A19BFA2"
+				}
+			],
+			"extraProperties": {
+				"position": {
+					"x": 68.057250393924,
+					"y": 1026.6646273647
+				},
+				"panelColor": "#3b82f6ff"
+			},
+			"uuid": "E5A3DCD32DD14696A0C5BE827941AEC3"
+		},
+		{
+			"name": "Notice",
+			"className": "Notice",
+			"collectionName": "NoticeSelection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "UUID",
+					"kind": "storage",
+					"type": "uuid",
+					"scope": "public",
+					"indexKind": "auto",
+					"unique": true,
+					"not_null": true,
+					"autosequence": true,
+					"primKey": true,
+					"uuid": "87C7B2DD08CE4109A4D74DFB1DD1EBC0",
+					"path": "",
+					"autogenerate": true
+				},
+				{
+					"name": "employee",
+					"kind": "relatedEntity",
+					"type": "Employee",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "80D76F81E1414A6585560BFB64215D8B"
+				},
+				{
+					"name": "isAccepted",
+					"kind": "storage",
+					"type": "bool",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "B916D660DDE34951A8DB2095FB87BFF6"
+				},
+				{
+					"name": "comment",
+					"kind": "storage",
+					"type": "text",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "F95F0212537643669DABDDFAECB85840"
+				},
+				{
+					"name": "excuse",
+					"kind": "storage",
+					"type": "text",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "CF527CB3BA5B4780ADBB0CFBA29E0544"
+				},
+				{
+					"name": "message",
+					"kind": "storage",
+					"type": "string",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "CCD0784061484E26866C6F1E0CB01A38"
+				},
+				{
+					"name": "meeting",
+					"kind": "relatedEntity",
+					"type": "Meeting",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "2B78CA82D35343C3A330679A9FE0E67E"
+				},
+				{
+					"name": "status",
+					"kind": "relatedEntity",
+					"type": "Status",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "832CE457A5754F6CBEF4A1965CFC8F23"
+				},
+				{
+					"name": "attachment",
+					"kind": "storage",
+					"type": "object",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "0FDF3D7C3E6C4178999D73CE8465F89D"
+				},
+				{
+					"name": "createdAt",
+					"kind": "storage",
+					"type": "date",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "3798024BC603428EAA9096C09C1C8C53"
+				}
+			],
+			"extraProperties": {
+				"position": {
+					"x": -487.17592062709,
+					"y": -458.02924321995
+				},
+				"panelColor": "rgb(68,68,68)"
+			},
+			"uuid": "BB7B02A44E964034B9EF3BFF27267C32"
+		},
+		{
+			"name": "Activity",
+			"className": "Activity",
+			"collectionName": "ActivitySelection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "UUID",
+					"kind": "storage",
+					"type": "uuid",
+					"scope": "public",
+					"indexKind": "auto",
+					"unique": true,
+					"not_null": true,
+					"autosequence": true,
+					"primKey": true,
+					"uuid": "F9BBFE9C113C48A18AC8A3E97A789FEA",
+					"path": "",
+					"autogenerate": true
+				},
+				{
+					"name": "employee",
+					"kind": "relatedEntity",
+					"type": "Employee",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "0AADC2E8313D4644A4CF9130EB8A4AB7"
+				},
+				{
+					"name": "type",
+					"kind": "storage",
+					"type": "string",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "D274266AB0184E4EAAD3C3FD99AF1E45"
+				},
+				{
+					"name": "message",
+					"kind": "storage",
+					"type": "text",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "A507082477424FA4B4EED176061397FD"
+				},
+				{
+					"name": "creationDate",
+					"kind": "storage",
+					"type": "date",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "5B6D40708A294996A766A15D5E545AA7"
+				},
+				{
+					"name": "creationHour",
+					"kind": "storage",
+					"type": "duration",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "C64AAC638B034F5D9A6587C2A921DA46"
+				},
+				{
+					"name": "meeting",
+					"kind": "relatedEntity",
+					"type": "Meeting",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "D632B76AE4A4427080189A3BA83B5C27"
+				},
+				{
+					"name": "status",
+					"kind": "relatedEntity",
+					"type": "Status",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "7E23361C857347049F67B3CDA8BF7DA8"
+				}
+			],
+			"extraProperties": {
+				"position": {
+					"x": -398.5008080264,
+					"y": 202.80116704236
+				},
+				"panelColor": "rgb(68,68,68)"
+			},
+			"uuid": "842D8737ABC041A0A80ADB4DA613828B"
+		},
+		{
+			"name": "Setting",
+			"className": "Setting",
+			"collectionName": "SettingSelection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "UUID",
+					"kind": "storage",
+					"type": "uuid",
+					"scope": "public",
+					"indexKind": "auto",
+					"unique": true,
+					"not_null": true,
+					"autosequence": true,
+					"primKey": true,
+					"uuid": "D1B0C58DE3DC42A7B0A25C586CA0FC7D",
+					"path": "",
+					"autogenerate": true
+				},
+				{
+					"name": "label",
+					"kind": "storage",
+					"type": "string",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "02034D63FD4F44D18D243F985B717AB1"
+				},
+				{
+					"name": "value",
+					"kind": "storage",
+					"type": "text",
+					"exposed": true,
+					"scope": "public",
+					"uuid": "3F5E591518B24439AB541646698B01C5"
+				}
+			],
+			"extraProperties": {
+				"position": {
+					"x": 599.5338546856,
+					"y": -703.32876798576
+				},
+				"panelColor": "rgb(68,68,68)"
+			},
+			"uuid": "97CB63F1DDD8447086588B6E60CCB246"
+		}
+	]
+}

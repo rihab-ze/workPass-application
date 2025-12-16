@@ -1,0 +1,47 @@
+extends DataClass
+	
+exposed function getCurrentUser() : cs.EmployeeEntity
+	var user : cs.EmployeeEntity
+	var userCS : cs.Qodly.Users
+	var userCloud, status : object
+	if (session.storage.currentUser == null)
+		userCS = cs.Qodly.Users.new()
+		userCloud = userCS.currentUser()
+		if (userCloud != null)
+			user = this.query("email == :1", userCloud.email).first()
+			if (user == null)
+				user = ds.Employee.new()
+				user.email = userCloud.email
+				status = user.save()
+				if (status.success)
+					webForm.setMessage("Saved")
+				else 
+					webForm.setError("Not saved")
+				end 
+			end 
+			use (session.storage)
+				session.storage.currentUser = newSharedObject("UUID", user.UUID)
+				session.storage.users = userCS.allUsers().copy(kShared)
+			end 
+		end 
+	else 
+		user = this.get(session.storage.currentUser.UUID)
+	end 
+	// what about when an admin update the username in the cloud dashboard, how to update it ? 
+	
+	return user
+	
+exposed function getByFullName(search : string, team : cs.TeamEntity) : cs.EmployeeSelection
+	if (search == null || search == "")
+		return this.query("team.UUID = :1", team.UUID)
+	else 
+		return this.query("fullname = :1 && team.UUID = :2", "@"+search+"@", team.UUID)
+	end 
+	
+exposed function searchByFullName(search) : cs.EmployeeSelection
+	trace
+	if (search == null || search == "")
+		return this.query("dontHaveTeam == true")
+	else 
+		return this.query("fullname = :1 && dontHaveTeam == true", "@"+search+"@")
+	end

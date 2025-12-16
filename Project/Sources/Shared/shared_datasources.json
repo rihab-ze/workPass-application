@@ -1,0 +1,162 @@
+{
+	"shared": [
+		{
+			"id": "status",
+			"type": "entitysel",
+			"dataclass": "Status",
+			"namespace": "shared",
+			"initialValue": "all",
+			"depth": null,
+			"pageSize": 1000
+		},
+		{
+			"id": "currentUser",
+			"type": "entity",
+			"dataclass": "Employee",
+			"namespace": "shared",
+			"initialValue": "",
+			"depth": null
+		},
+		{
+			"id": "myMeetings",
+			"type": "entitysel",
+			"dataclass": "Meeting",
+			"namespace": "shared",
+			"initialValue": "all",
+			"depth": null,
+			"pageSize": 100,
+			"events": []
+		},
+		{
+			"id": "myOnsiteMeetings",
+			"type": "entitysel",
+			"dataclass": "Meeting",
+			"namespace": "shared",
+			"initialValue": "all",
+			"depth": null,
+			"pageSize": 100
+		},
+		{
+			"id": "filters",
+			"type": "scalar",
+			"namespace": "shared",
+			"dataType": "array",
+			"initialValue": []
+		},
+		{
+			"id": "element",
+			"type": "scalar",
+			"from": "filters",
+			"namespace": "shared",
+			"dataType": "object",
+			"initialValue": "first"
+		},
+		{
+			"id": "teamsStatus",
+			"type": "entitysel",
+			"dataclass": "Status",
+			"namespace": "shared",
+			"initialValue": "",
+			"depth": null,
+			"pageSize": 100
+		},
+		{
+			"id": "selectedTeam",
+			"type": "entity",
+			"dataclass": "Team",
+			"namespace": "shared",
+			"initialValue": "",
+			"depth": null
+		},
+		{
+			"id": "oneMeeting",
+			"type": "entity",
+			"dataclass": "Meeting",
+			"namespace": "shared",
+			"initialValue": "",
+			"depth": null
+		},
+		{
+			"id": "onSiteMeeting",
+			"type": "entity",
+			"dataclass": "Meeting",
+			"namespace": "shared",
+			"initialValue": "",
+			"depth": null
+		},
+		{
+			"id": "statusTest",
+			"type": "entitysel",
+			"dataclass": "Status",
+			"namespace": "shared",
+			"initialValue": "all",
+			"depth": null,
+			"pageSize": 100
+		}
+	],
+	"Qodly": [
+		{
+			"id": "Title",
+			"dataType": "string",
+			"type": "scalar",
+			"namespace": "Qodly",
+			"initialValue": ""
+		},
+		{
+			"id": "Location",
+			"dataType": "object",
+			"type": "scalar",
+			"namespace": "Qodly",
+			"initialValue": {
+				"urlQuery": [],
+				"urlPath": {},
+				"Anchor": ""
+			},
+			"schema": {
+				"type": "object",
+				"properties": [
+					{
+						"name": "urlQuery",
+						"type": "array",
+						"initialValue": []
+					},
+					{
+						"name": "urlPath",
+						"type": "object",
+						"initialValue": {}
+					},
+					{
+						"name": "Anchor",
+						"type": "string",
+						"initialValue": ""
+					}
+				]
+			}
+		},
+		{
+			"id": "UserLanguage",
+			"dataType": "object",
+			"type": "scalar",
+			"namespace": "Qodly",
+			"initialValue": {
+				"selected": {},
+				"supported": []
+			},
+			"schema": {
+				"type": "object",
+				"properties": [
+					{
+						"name": "selected",
+						"type": "object",
+						"initialValue": {}
+					},
+					{
+						"name": "supported",
+						"type": "array",
+						"initialValue": []
+					}
+				]
+			}
+		}
+	]
+}

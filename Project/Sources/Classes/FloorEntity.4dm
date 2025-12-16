@@ -1,0 +1,9 @@
+Class extends Entity
+
+exposed function get occupied()->$result : integer  //get the rooms that are occupied and teh divide them on the total integer of rooms
+	var $roomOccupation: integer
+	$roomOccupation := this.rooms.sum("occupied")
+	$result := $roomOccupation/this.rooms.length
+	
+exposed function get free()->$result : integer
+	$result := 100-this.occupied

@@ -1,0 +1,56 @@
+extends DataClass
+
+function create(activityType : string, meeting : cs.MeetingEntity, status : cs.StatusEntity, activityMessage : string)
+	var activitySave : object
+	var activity : cs.ActivityEntity
+	activity = this.new()
+	activity.type = activityType
+	activity.message = activityMessage
+	activity.meeting = meeting
+	activity.status = status
+	activity.creationDate = currentDate()
+	activity.creationHour = currentTime()
+	activity.employee = ds.Employee.getCurrentUser()
+	activitySave = activity.save()
+	if (activitySave.success)
+		webForm.setMessage("Notification accepted!")
+	else 
+		webForm.setError("An error occured while accepting this notification")
+	end 
+	
+exposed function accept(notif : cs.NoticeEntity)
+	var participation : cs.ParticipationEntity
+	if (notif.meeting != null)  //change the participation status
+		participation = notif.employee.participations.query("meeting.UUID = :1", notif.meeting.UUID).first()
+		participation.status = "accepted"
+		participation.save()
+		this.create("meeting", notif.meeting, null, string(participation.employee.fullname+" has accepted the meeting "+notif.meeting.subject+" taking place the "+string(notif.meeting.mDate, 2)))
+	else 
+		notif.status.isAccepted = true
+		if (notif.attachment != null)
+			notif.status.label = notif.attachment.label
+			notif.status.sDate = notif.attachment.sDate
+			notif.status.eDate = notif.attachment.eDate
+		end 
+		notif.status.save()
+		this.create("status", null, notif.status, string(notif.status.employee.fullname+" has accepted the status "+notif.status.label+" declared for the "+string(notif.status.sDate, 2)))
+	end 
+	notif.isAccepted = true
+	notif.save()
+	
+exposed function refuse(notif : cs.NoticeEntity, excuse : string)
+	var participation : cs.ParticipationEntity
+	if (notif.meeting != null)  //change the participation status
+		participation = notif.employee.participations.query("meeting.UUID = :1", notif.meeting.UUID).first()
+		participation.status = "refused"
+		participation.save()
+		this.create("meeting", notif.meeting, null, string(participation.employee.fullname+" has refused the meeting "+notif.meeting.subject+" taking place the "+string(notif.meeting.mDate, 2)))
+	else 
+		notif.status.isAccepted = false
+		notif.status.save()
+		this.create("status", null, notif.status, string(notif.status.employee.fullname+" has refused the status "+notif.status.label+" declared for the "+string(notif.status.sDate, 2)))
+	end 
+	notif.excuse = excuse
+	notif.isAccepted = false
+	notif.save()
+	webForm["declineInvitation"].hide()

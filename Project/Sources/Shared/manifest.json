@@ -1,0 +1,55 @@
+{
+	"applicationName": "wrkPass",
+	"description": "A comprehensive telecommuting solution for managing remote, hybrid, and onsite meetings, team availability, and office space visibility, all tailored to user roles.",
+	"details": "wrkPass is designed to streamline telecommuting by enabling users to schedule meetings, declare work statuses, view team availability, and explore company premises—all based on their specific role. The app ensures that teams can collaborate efficiently, no matter where they are working from.",
+	"note": "NB: In order to use the meeting creation feature, ensure your app has integrated calendar services, and store necessary credentials in the env.json file located in the Shared folder.",
+	"visuals": [
+	  {
+		"description": "Dahsboard page",
+		"path": "/$shared/visuals/dashboard.png",
+		"image": "/$shared/visuals/dashboard.png"
+	  },
+	  {
+		"description": "Status page",
+		"path": "/$shared/visuals/status.png",
+		"image": "/$shared/visuals/status.png"
+	  },
+	  {
+		"description": "Declare status",
+		"path": "/$shared/visuals/declareStatus.png",
+		"image": "/$shared/visuals/declareStatus.png"
+	  },
+	  {
+		"description": "Teams",
+		"path": "/$shared/visuals/teams.png",
+		"image": "/$shared/visuals/teams.png"
+	  },
+	  {
+		"description": "Buildings",
+		"path": "/$shared/visuals/buildings.png",
+		"image": "/$shared/visuals/buildings.png"
+	  },
+	  {
+		"description": "Add Meeting",
+		"path": "/$shared/visuals/newMeeting.png",
+		"image": "/$shared/visuals/newMeeting.png"
+	  },
+	  {
+		"description": "Settings page",
+		"path": "/$shared/visuals/settings.png",
+		"image": "/$shared/visuals/settings.png"
+	  }
+	],
+	"logo": {
+	  "small": "logo_small_path",
+	  "large": "/$shared/logos/Q-2.svg"
+	},
+	"qodlyVersion": "all",
+	"author": {
+	  "name": "Qodly",
+	  "url": "https://qodly.com/"
+	},
+	"category": "Qodly starters",
+	"language": "English",
+	"version": "1.2.0"
+  }

@@ -1,0 +1,12 @@
+{
+	"conditions": [
+		{
+			"id": "mQwhfPmbJZEP4Yfjdwfweb",
+			"type": "datasource",
+			"name": "condition",
+			"path": "shared:currentUser",
+			"dsType": "entity",
+			"op": "isnull"
+		}
+	]
+}

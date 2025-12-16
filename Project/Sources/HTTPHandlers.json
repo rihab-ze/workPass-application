@@ -1,0 +1,16 @@
+[
+  {
+    "class": "OAuthHandler",
+    "method": "teamsAuthCallback",
+    "verbs": "GET",
+    "id": "kxJvc6W5C9HzyTPMFTTz3y",
+    "pattern": "auth/teams/callback"
+  },
+  {
+    "class": "OAuthHandler",
+    "method": "teamsAuth",
+    "verbs": "GET",
+    "id": "h9BJCK1K2ssdxZhbqDj8SK",
+    "pattern": "auth/teams"
+  }
+]

@@ -1,0 +1,660 @@
+{
+	"metadata": {
+		"v": "1.0",
+		"datasources": [],
+		"styles": [
+			{
+				"name": "demoButton2",
+				"content": "self {\n\tcursor: pointer;\n  \tbackground-image: linear-gradient(to right, #6a36ca ,rgb(88, 99, 246));\n}\nself:hover {\n\topacity: 0.8;\n}\nself:active {\n\topacity: 1;\n}",
+				"parentId": null,
+				"id": "fJAmpdtGmbsmUUIeu-WaM"
+			}
+		]
+	},
+	"components": {
+		"ROOT": {
+			"type": {
+				"resolvedName": "Container"
+			},
+			"isCanvas": true,
+			"props": {
+				"classNames": [],
+				"events": [],
+				"airyMode": false,
+				"className": "bg-white h-full w-full px-6",
+				"style": {
+					"paddingRight": "0px",
+					"paddingBottom": "0px",
+					"paddingTop": "0px",
+					"paddingLeft": "0px",
+					"display": "flex"
+				}
+			},
+			"displayName": "Page",
+			"custom": {},
+			"parent": "",
+			"hidden": false,
+			"nodes": [
+				"Cf9cj2dxU3"
+			],
+			"linkedNodes": {}
+		},
+		"Cf9cj2dxU3": {
+			"type": {
+				"resolvedName": "StyleBox"
+			},
+			"isCanvas": true,
+			"props": {
+				"events": [],
+				"style": {
+					"display": "flex",
+					"height": "100%",
+					"backgroundColor": "#ffffffff",
+					"borderRadius": "10px"
+				},
+				"classNames": [
+					"flex-grow"
+				],
+				"iterableChild": true
+			},
+			"displayName": "Stylebox",
+			"custom": {},
+			"parent": "ROOT",
+			"hidden": false,
+			"nodes": [
+				"yNWP3H6inD",
+				"r7BwDfujsu"
+			],
+			"linkedNodes": {}
+		},
+		"yNWP3H6inD": {
+			"type": {
+				"resolvedName": "StyleBox"
+			},
+			"isCanvas": true,
+			"props": {
+				"events": [],
+				"style": {
+					"display": "flex",
+					"flexDirection": "column",
+					"gap": "10px",
+					"alignItems": "start",
+					"justifyContent": "flex-start",
+					"width": "20%",
+					"paddingTop": "0px",
+					"paddingBottom": "0px"
+				},
+				"iterableChild": true
+			},
+			"displayName": "Stylebox",
+			"custom": {},
+			"parent": "Cf9cj2dxU3",
+			"hidden": false,
+			"nodes": [
+				"4P9061ITzF"
+			],
+			"linkedNodes": {}
+		},
+		"4P9061ITzF": {
+			"type": {
+				"resolvedName": "StyleBox"
+			},
+			"isCanvas": true,
+			"props": {
+				"events": [],
+				"style": {
+					"backgroundColor": "#eaefeea3",
+					"borderRadius": "10px",
+					"display": "flex",
+					"flexDirection": "column",
+					"justifyContent": "center",
+					"gap": "30px"
+				},
+				"classNames": [
+					"flex-grow"
+				],
+				"iterableChild": true
+			},
+			"displayName": "Stylebox",
+			"custom": {},
+			"parent": "yNWP3H6inD",
+			"hidden": false,
+			"nodes": [
+				"jfck2RlSyq",
+				"CyzClqfJWO"
+			],
+			"linkedNodes": {}
+		},
+		"jfck2RlSyq": {
+			"type": {
+				"resolvedName": "StyleBox"
+			},
+			"isCanvas": true,
+			"props": {
+				"events": [],
+				"style": {
+					"display": "flex",
+					"flexDirection": "column",
+					"gap": "10px",
+					"width": "100%"
+				},
+				"iterableChild": true
+			},
+			"displayName": "Stylebox",
+			"custom": {},
+			"parent": "4P9061ITzF",
+			"hidden": false,
+			"nodes": [
+				"bwRu4PxSJ5",
+				"3uaoufm0QK"
+			],
+			"linkedNodes": {}
+		},
+		"bwRu4PxSJ5": {
+			"type": {
+				"resolvedName": "StyleBox"
+			},
+			"isCanvas": true,
+			"props": {
+				"events": [
+					{
+						"type": "navigation",
+						"id": "v3oVJ7hNRsM2a9uDqCwdRz",
+						"events": [
+							"onclick"
+						],
+						"externalLink": false,
+						"loader": "",
+						"parent": "same-tab",
+						"isHardCoded": true,
+						"target": "home"
+					}
+				],
+				"classNames": [
+					"demoButton2"
+				],
+				"style": {
+					"borderRadius": "20px",
+					"display": "flex",
+					"color": "#ffffffff",
+					"justifyContent": "center",
+					"alignItems": "center",
+					"width": "100%",
+					"gap": "12px",
+					"height": "50px"
+				},
+				"iterableChild": true
+			},
+			"displayName": "Stylebox",
+			"custom": {},
+			"parent": "jfck2RlSyq",
+			"hidden": false,
+			"nodes": [
+				"DwCT762jP7",
+				"FB3pjUM8cF"
+			],
+			"linkedNodes": {}
+		},
+		"DwCT762jP7": {
+			"type": {
+				"resolvedName": "Icon"
+			},
+			"isCanvas": false,
+			"props": {
+				"classNames": [],
+				"events": [],
+				"icon": "fa-home",
+				"style": {
+					"marginBottom": "0px",
+					"marginTop": "0px",
+					"display": "block",
+					"marginLeft": "0px",
+					"marginRight": "0px",
+					"paddingLeft": "8px"
+				}
+			},
+			"displayName": "Icon",
+			"custom": {},
+			"parent": "bwRu4PxSJ5",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		},
+		"FB3pjUM8cF": {
+			"type": {
+				"resolvedName": "Text"
+			},
+			"isCanvas": false,
+			"props": {
+				"events": [],
+				"doc": [
+					{
+						"type": "paragraph",
+						"children": [
+							{
+								"text": "Home",
+								"bold": false,
+								"italic": false,
+								"underlined": false,
+								"strikethrough": false
+							}
+						]
+					}
+				],
+				"datasource": "",
+				"style": {
+					"textAlign": "center",
+					"width": "fit-content",
+					"marginTop": "0px",
+					"marginRight": "12px",
+					"marginBottom": "0px"
+				},
+				"iterableChild": true
+			},
+			"displayName": "Text",
+			"custom": {},
+			"parent": "bwRu4PxSJ5",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		},
+		"3uaoufm0QK": {
+			"type": {
+				"resolvedName": "StyleBox"
+			},
+			"isCanvas": true,
+			"props": {
+				"events": [
+					{
+						"type": "navigation",
+						"id": "1giPjZHsJc5vRiF6j8f69c",
+						"events": [
+							"onclick"
+						],
+						"externalLink": false,
+						"loader": "",
+						"parent": "same-tab",
+						"target": "startPage",
+						"isHardCoded": true
+					}
+				],
+				"classNames": [
+					"demoButton2"
+				],
+				"style": {
+					"borderRadius": "20px",
+					"display": "flex",
+					"color": "#ffffffff",
+					"justifyContent": "center",
+					"alignItems": "center",
+					"width": "100%",
+					"gap": "12px",
+					"height": "50px"
+				},
+				"iterableChild": true
+			},
+			"displayName": "Stylebox",
+			"custom": {},
+			"parent": "jfck2RlSyq",
+			"hidden": false,
+			"nodes": [
+				"AUuuszfmcv",
+				"MpCJSLWzlB"
+			],
+			"linkedNodes": {}
+		},
+		"AUuuszfmcv": {
+			"type": {
+				"resolvedName": "Icon"
+			},
+			"isCanvas": false,
+			"props": {
+				"classNames": [],
+				"events": [],
+				"icon": "fa-regular fa-calendar",
+				"style": {
+					"marginBottom": "0px",
+					"marginTop": "0px",
+					"display": "block",
+					"marginLeft": "0px",
+					"marginRight": "0px",
+					"paddingLeft": "8px"
+				}
+			},
+			"displayName": "Icon",
+			"custom": {},
+			"parent": "3uaoufm0QK",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		},
+		"MpCJSLWzlB": {
+			"type": {
+				"resolvedName": "Text"
+			},
+			"isCanvas": false,
+			"props": {
+				"events": [],
+				"doc": [
+					{
+						"type": "paragraph",
+						"children": [
+							{
+								"text": "Go to app",
+								"bold": false,
+								"italic": false,
+								"underlined": false,
+								"strikethrough": false
+							}
+						]
+					}
+				],
+				"datasource": "",
+				"style": {
+					"textAlign": "center",
+					"width": "fit-content",
+					"marginTop": "0px",
+					"marginRight": "12px",
+					"marginBottom": "0px"
+				},
+				"iterableChild": true
+			},
+			"displayName": "Text",
+			"custom": {},
+			"parent": "3uaoufm0QK",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		},
+		"CyzClqfJWO": {
+			"type": {
+				"resolvedName": "StyleBox"
+			},
+			"isCanvas": true,
+			"props": {
+				"events": [],
+				"style": {
+					"display": "flex"
+				},
+				"iterableChild": true
+			},
+			"displayName": "Stylebox",
+			"custom": {},
+			"parent": "4P9061ITzF",
+			"hidden": false,
+			"nodes": [
+				"y0C793lU4o"
+			],
+			"linkedNodes": {}
+		},
+		"y0C793lU4o": {
+			"type": {
+				"resolvedName": "Text"
+			},
+			"isCanvas": false,
+			"props": {
+				"events": [],
+				"iterableChild": true,
+				"doc": [
+					{
+						"type": "paragraph",
+						"children": [
+							{
+								"bold": false,
+								"italic": false,
+								"underlined": false,
+								"strikethrough": false,
+								"text": "wrkPass is an all-in-one telecommuting solution designed to streamline remote, hybrid, and onsite work coordination. This intuitive app allows users to create and manage meetings tailored to their working status, whether remote, hybrid, or onsite. Employees can declare their current work status, enabling seamless communication with colleagues and managers."
+							}
+						]
+					},
+					{
+						"type": "paragraph",
+						"children": [
+							{
+								"bold": false,
+								"italic": false,
+								"underlined": false,
+								"strikethrough": false,
+								"text": "For the roles, there are three: the "
+							},
+							{
+								"bold": false,
+								"italic": true,
+								"underlined": false,
+								"strikethrough": false,
+								"text": "admin"
+							},
+							{
+								"bold": false,
+								"italic": false,
+								"underlined": false,
+								"strikethrough": false,
+								"text": ", that has all the privileges within the app. The "
+							},
+							{
+								"bold": false,
+								"italic": true,
+								"underlined": false,
+								"strikethrough": false,
+								"text": "manager"
+							},
+							{
+								"bold": false,
+								"italic": false,
+								"underlined": false,
+								"strikethrough": false,
+								"text": " who can manager only his and his team's meetings and status, and the "
+							},
+							{
+								"bold": false,
+								"italic": true,
+								"underlined": false,
+								"strikethrough": false,
+								"text": "employee"
+							},
+							{
+								"bold": false,
+								"italic": false,
+								"underlined": false,
+								"strikethrough": false,
+								"text": ", who only has a view on his meetings and status."
+							}
+						]
+					}
+				],
+				"datasource": ""
+			},
+			"displayName": "Text",
+			"custom": {
+				"__t": {}
+			},
+			"parent": "CyzClqfJWO",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		},
+		"r7BwDfujsu": {
+			"type": {
+				"resolvedName": "StyleBox"
+			},
+			"isCanvas": true,
+			"props": {
+				"events": [],
+				"style": {
+					"paddingLeft": "0px",
+					"paddingRight": "0px",
+					"paddingBottom": "0px",
+					"paddingTop": "0px",
+					"display": "flex",
+					"flexDirection": "column",
+					"width": "80%",
+					"borderWidth": "5px",
+					"borderColor": "#eaefeea3",
+					"borderRadius": "10px",
+					"gap": "10px",
+					"backgroundColor": "#eaefeea3"
+				},
+				"classNames": [
+					"flex-grow"
+				],
+				"iterableChild": true
+			},
+			"displayName": "Stylebox",
+			"custom": {},
+			"parent": "Cf9cj2dxU3",
+			"hidden": false,
+			"nodes": [
+				"vibir_zLmE",
+				"K5UMy8EUzP"
+			],
+			"linkedNodes": {}
+		},
+		"vibir_zLmE": {
+			"type": {
+				"resolvedName": "StyleBox"
+			},
+			"isCanvas": true,
+			"props": {
+				"events": [],
+				"style": {
+					"textAlign": "justify",
+					"display": "block",
+					"paddingRight": "0px",
+					"paddingBottom": "0px",
+					"paddingTop": "0px",
+					"paddingLeft": "0px"
+				},
+				"iterableChild": true
+			},
+			"displayName": "Stylebox",
+			"custom": {},
+			"parent": "r7BwDfujsu",
+			"hidden": false,
+			"nodes": [
+				"ehQsQF0mgA"
+			],
+			"linkedNodes": {}
+		},
+		"ehQsQF0mgA": {
+			"type": {
+				"resolvedName": "Text"
+			},
+			"isCanvas": false,
+			"props": {
+				"events": [],
+				"doc": [
+					{
+						"type": "paragraph",
+						"children": [
+							{
+								"text": "Different parts covered in the app:",
+								"bold": false,
+								"italic": false,
+								"underlined": false,
+								"strikethrough": false
+							}
+						]
+					},
+					{
+						"type": "paragraph",
+						"children": [
+							{
+								"bold": false,
+								"italic": false,
+								"underlined": false,
+								"strikethrough": false,
+								"text": "   -Use of different display components to show data."
+							}
+						]
+					},
+					{
+						"type": "paragraph",
+						"children": [
+							{
+								"bold": false,
+								"italic": false,
+								"underlined": false,
+								"strikethrough": false,
+								"text": "   -Navigation throught different Pages."
+							}
+						]
+					},
+					{
+						"type": "paragraph",
+						"children": [
+							{
+								"bold": false,
+								"italic": false,
+								"underlined": false,
+								"strikethrough": false,
+								"text": "   -Roles and privileges management."
+							}
+						]
+					},
+					{
+						"type": "paragraph",
+						"children": [
+							{
+								"bold": false,
+								"italic": false,
+								"underlined": false,
+								"strikethrough": false,
+								"text": "   - Use of states to control the di"
+							}
+						]
+					},
+					{
+						"type": "paragraph",
+						"children": [
+							{
+								"bold": false,
+								"italic": false,
+								"underlined": false,
+								"strikethrough": false,
+								"text": "   -Use of custom components: calendar, date picker depending on the need."
+							}
+						]
+					}
+				],
+				"datasource": "",
+				"style": {
+					"fontWeight": "500"
+				},
+				"iterableChild": true
+			},
+			"displayName": "Text",
+			"custom": {
+				"__t": {}
+			},
+			"parent": "vibir_zLmE",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		},
+		"K5UMy8EUzP": {
+			"type": {
+				"resolvedName": "WebformLoader"
+			},
+			"isCanvas": false,
+			"props": {
+				"events": [],
+				"webform": "startPage",
+				"style": {
+					"width": "100%",
+					"height": "600px",
+					"overflow": "scroll"
+				},
+				"classNames": [
+					"flex-grow"
+				]
+			},
+			"displayName": "Page Loader",
+			"custom": {},
+			"parent": "r7BwDfujsu",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		}
+	}
+}

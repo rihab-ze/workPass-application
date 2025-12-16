@@ -1,0 +1,55 @@
+extends DataStoreImplementation
+
+exposed function currentDate()->crtDate : string
+	crtDate = string(currentDate(), 2)
+	
+exposed function getRangeDate(sDate, eDate)->rangeDate : collection
+	rangeDate = []
+	rangeDate.push(sDate, eDate)
+	
+exposed function initDate(startDate : date, endDate : date)->result : object 
+	var varDate, firstDayMonth, lastDayMonth : date
+	var currentDay : integer
+	
+	if ( (startDate !=  !00-00-00!) && (endDate !=  !00-00-00!))
+		use (storage)
+			storage.filterDate = newSharedObject("startDate", startDate, "endDate", endDate)
+		end 
+		result = storage.filterDate
+	else 
+		varDate = currentDate()
+		currentDay = dayOf(varDate)
+		firstDayMonth = addToDate(varDate, 0, 0, -currentDay+1)
+		lastDayMonth = addToDate(varDate, 0, 1, -currentDay)
+		result = newObject("startDate", firstDayMonth, "endDate", lastDayMonth)
+		use (storage)
+			storage.filterDate = newSharedObject("startDate", firstDayMonth, "endDate", lastDayMonth)
+		end 
+		result = storage.filterDate
+	end 
+	
+exposed function getCountries() : collection
+	var jsonFile : 4D.File
+	var text : string
+	var fileContent : collection
+	var countries : collection
+	var element, formulaCol : object
+	jsonFile = file("/PROJECT/Sources/Shared/assets/data/countries.json")
+	text = jsonFile.getText()
+	fileContent = jsonParse(text, 42)
+	formulaCol = formula({value: $1.value.name})
+	countries = fileContent.map(formulaCol)
+	return countries
+	
+exposed function selectedLocalCountry(local : cs.LocalEntity) : object
+	var countries : collection
+	countries = this.getCountries()
+	return countries.find(formula($1.value.value == $2), local.country)
+
+exposed function getManifestObject() : object
+	var manifestFile : 4D.File
+	var manifestObject : object
+	manifestFile = file("/PACKAGE/Project/Sources/Shared/manifest.json")
+	manifestObject = jsonParse(manifestFile.getText())
+	return manifestObject
+	

@@ -1,0 +1,286 @@
+{
+	"forceLogin": true,
+	"restrictedByDefault": false,
+	"permissions": {
+		"allowed": [
+			{
+				"applyTo": "ds.getManifestObject",
+				"type": "method",
+				"execute": [
+					"guest"
+				]
+			},
+			{
+				"applyTo": "ds.generateDate",
+				"type": "method",
+				"execute": [
+					"guest"
+				]
+			},
+			{
+				"applyTo": "Employee",
+				"type": "dataclass",
+				"read": [
+					"guestPromoted",
+					"admin",
+					"manager",
+					"employee"
+				],
+				"create": [
+					"guestPromoted",
+					"admin"
+				],
+				"update": [
+					"guestPromoted",
+					"admin",
+					"manager"
+				],
+				"drop": [
+					"guestPromoted",
+					"admin"
+				],
+				"execute": [
+					"guestPromoted",
+					"admin",
+					"manager"
+				]
+			},
+			{
+				"applyTo": "Local",
+				"type": "dataclass",
+				"read": [
+					"guestPromoted",
+					"admin",
+					"manager",
+					"employee"
+				],
+				"create": [
+					"guestPromoted",
+					"admin"
+				],
+				"drop": [
+					"guestPromoted",
+					"admin"
+				],
+				"update": [
+					"admin"
+				],
+				"execute": [
+					"admin"
+				]
+			},
+			{
+				"applyTo": "Team",
+				"type": "dataclass",
+				"read": [
+					"guestPromoted",
+					"admin",
+					"manager"
+				],
+				"create": [
+					"guestPromoted",
+					"admin"
+				],
+				"update": [
+					"guestPromoted",
+					"admin",
+					"manager"
+				],
+				"drop": [
+					"guestPromoted",
+					"admin"
+				],
+				"execute": [
+					"admin",
+					"manager"
+				]
+			},
+			{
+				"applyTo": "Meeting",
+				"type": "dataclass",
+				"read": [
+					"guestPromoted",
+					"admin",
+					"manager",
+					"employee"
+				],
+				"create": [
+					"guestPromoted",
+					"admin",
+					"manager",
+					"employee"
+				],
+				"drop": [
+					"guestPromoted",
+					"admin"
+				],
+				"update": [
+					"admin",
+					"manager",
+					"employee"
+				],
+				"execute": [
+					"admin",
+					"manager",
+					"employee"
+				]
+			},
+			{
+				"applyTo": "Status",
+				"type": "dataclass",
+				"read": [
+					"guestPromoted",
+					"admin",
+					"manager",
+					"employee"
+				],
+				"create": [
+					"guestPromoted",
+					"admin",
+					"manager",
+					"employee"
+				],
+				"drop": [
+					"guestPromoted",
+					"admin"
+				],
+				"update": [
+					"admin",
+					"manager",
+					"employee"
+				],
+				"execute": [
+					"admin",
+					"manager",
+					"employee"
+				]
+			},
+			{
+				"applyTo": "Notice",
+				"type": "dataclass",
+				"read": [
+					"guestPromoted",
+					"admin",
+					"manager",
+					"employee"
+				],
+				"create": [
+					"guestPromoted",
+					"admin",
+					"manager",
+					"employee"
+				],
+				"drop": [
+					"guestPromoted",
+					"admin"
+				],
+				"update": [
+					"admin",
+					"manager",
+					"employee"
+				],
+				"execute": [
+					"admin",
+					"manager",
+					"employee"
+				]
+			},
+			{
+				"applyTo": "Activity",
+				"type": "dataclass",
+				"read": [
+					"guestPromoted",
+					"admin",
+					"manager",
+					"employee"
+				],
+				"create": [
+					"guestPromoted",
+					"admin",
+					"manager",
+					"employee"
+				],
+				"drop": [
+					"guestPromoted",
+					"admin"
+				],
+				"execute": [
+					"guestPromoted",
+					"admin",
+					"manager",
+					"employee"
+				],
+				"update": [
+					"admin",
+					"manager",
+					"employee"
+				]
+			},
+			{
+				"applyTo": "Setting",
+				"type": "dataclass",
+				"read": [
+					"admin"
+				],
+				"create": [
+					"admin"
+				],
+				"update": [
+					"admin"
+				],
+				"drop": [
+					"admin"
+				],
+				"execute": [
+					"admin"
+				]
+			}
+		]
+	},
+	"privileges": [
+		{
+			"id": "v3FwRrbeY97paKczB1nGM3",
+			"privilege": "guestPromoted",
+			"includes": []
+		},
+		{
+			"id": "egRoPKMUdYsPatreJequbY",
+			"privilege": "admin",
+			"includes": []
+		},
+		{
+			"id": "4z6E1WhgzCcvBpCriP1Gud",
+			"privilege": "manager",
+			"includes": []
+		},
+		{
+			"id": "74sZGfyq4CQCoKCABWer9K",
+			"privilege": "employee",
+			"includes": []
+		}
+	],
+	"roles": [
+		{
+			"id": "r1yDEEfH6xvN6t9d3eFCA2",
+			"role": "Admin",
+			"privileges": [
+				"guest",
+				"admin"
+			]
+		},
+		{
+			"id": "1j5HMDBn7BFMuzr57ZnXK7",
+			"role": "Employee",
+			"privileges": [
+				"employee"
+			]
+		},
+		{
+			"id": "kyR1meUsREbiR2xcyA4kaU",
+			"role": "Manager",
+			"privileges": [
+				"manager"
+			]
+		}
+	]
+}

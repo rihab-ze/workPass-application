@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE base SYSTEM "http://www.4d.com/dtd/2007/base.dtd" >
+<base name="newVacay4DApp" collation_locale="en">
+	<schema name="DEFAULT_SCHEMA"/>
+	<table name="Employee" uuid="22117192AB6A4E979E339E4888619210">
+		<field name="UUID" id="1" type="10" uuid="2EE9825FD0364306BF5406331920453F" unique="true" not_null="true" autosequence="true" />
+		<field name="avatar" id="2" type="12" uuid="32845C558E004A3D9979387082707328" />
+		<field name="company_ID" uuid="85BB3BC7C87B425DBF9259401E6C6337" type="10" id="3" />
+		<field name="team_ID" uuid="35CB1B12B5D646B39DFB9075C39601E3" type="10" id="7" />
+		<field name="email" id="12" type="10" uuid="7006B4172E0F45E385A771DA66F6C08D" />
+		<field name="room_ID" uuid="84794122D7894F838295B132EEBE6DC0" type="10" id="14" />
+		<field name="code" id="15" type="10" uuid="DECF34645BAE4961B3BACF4352EA68F3" />
+		<primary_key field_name="UUID" field_uuid="2EE9825FD0364306BF5406331920453F" />
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="6">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="519.753242034584" top="516.9051791361001" width="200" height="300"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="Company" uuid="C14FCF7FA46B4174BD6F6266BBAEF880">
+		<field name="UUID" id="1" type="10" uuid="A6D873F4D6F24E4D910E01610B4EE063" unique="true" not_null="true" autosequence="true" />
+		<field name="name" id="3" type="10" uuid="CF8D2C8A522C405FAF6914557C70EF94" />
+		<field name="address" id="4" type="10" uuid="40560C1718C544D6A8CCC0078DF690BC" />
+		<field name="logo" id="6" type="12" uuid="2B3A759F56014820A3CD0B4D7314956F" />
+		<field name="director_ID" uuid="70923BE7310F44E4AD91032F1D79ADE9" type="10" id="7" />
+		<primary_key field_name="UUID" field_uuid="A6D873F4D6F24E4D910E01610B4EE063" />
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="6">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="519.825717233876" top="1606.75308099522" width="200" height="300"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="Status" uuid="4A9A78132BCD440886C5CA49B94EF0E3">
+		<field name="UUID" id="1" type="10" uuid="D4B4E59186EB406BB0230D78CE2116F1" unique="true" not_null="true" autosequence="true" />
+		<field name="employee_ID" uuid="DBBC7D839F794B7BB0874BF5D3403121" type="10" id="2" />
+		<field name="label" id="3" type="10" uuid="03BD1C2A951A428A9A63B6D25531C88F" />
+		<field name="sDate" id="4" type="8" uuid="A1A39B905D86426DB9A462A90A792DC0" />
+		<field name="createdBy_ID" uuid="D3AD3E586F5B47ABB5F662BF83A54EC0" type="10" id="5" />
+		<field name="isAccepted" id="6" type="1" uuid="5700BC846F4849DDBF0ABB55A11463DF" />
+		<field name="eDate" id="7" type="8" uuid="8F8A0882CF854FFEA671934223E25AFC" />
+		<primary_key field_name="UUID" field_uuid="D4B4E59186EB406BB0230D78CE2116F1" />
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="6">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="1002.01585799572" top="894.58092466834" width="200" height="300"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="Meeting" uuid="C07791A380704C77BA559432185F142E">
+		<field name="UUID" id="1" type="10" uuid="50838CFA2FDD44F0A76224F9D886C6ED" unique="true" not_null="true" autosequence="true" />
+		<field name="type" id="3" type="10" uuid="F7FCEFFFC87B49439CD20C4821464E05" />
+		<field name="mDate" id="4" type="8" uuid="FA37E2371BE74539872CA0B490F02246" />
+		<field name="startTime" id="5" type="9" uuid="8981BC462CB24A6EBF91576BA077B7A7" />
+		<field name="endTime" id="6" type="9" uuid="6CFC77529A634B0F8291F50962227C01" />
+		<field name="subject" id="7" type="10" uuid="E56AE673579B4A7F980F2A164F651ED9" />
+		<field name="createdBy_ID" uuid="A6B76DB8473F446D8225BD4102884FF0" type="10" id="8" />
+		<field name="room_ID" uuid="43F319C04CE14EB5A9D0F2A077B0973E" type="10" id="9" />
+		<field name="link" id="12" type="10" uuid="AEE338FFF71847479F648C5722ED942E" />
+		<primary_key field_name="UUID" field_uuid="50838CFA2FDD44F0A76224F9D886C6ED" />
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="6">
+				<color red="41" green="219" blue="37" alpha="255"/>
+				<coordinates left="1049.09736836773" top="1579.41238367508" width="200" height="300"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="Local" uuid="584F2D5F2F2740E78247816B85924A40">
+		<field name="UUID" id="1" type="10" uuid="1CFE137590D44A3DB2058508BAF85906" unique="true" not_null="true" autosequence="true" />
+		<field name="company_ID" uuid="8A4C449B1AB74F32A37E6625C49EE175" type="10" id="2" />
+		<field name="label" id="4" type="10" uuid="4D5767010A6F43A6B0145C73655F55C5" />
+		<field name="country" id="5" type="10" uuid="CE21B4AC92CB499CB315CE7D43EE9175" />
+		<field name="city" id="6" type="10" uuid="2DB2BD581B6E4F7BB5045D5A343BF09C" />
+		<field name="picture" id="7" type="12" uuid="6F533D84174B40ABA41097DDC25CEDAD" />
+		<primary_key field_name="UUID" field_uuid="1CFE137590D44A3DB2058508BAF85906" />
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="6">
+				<color red="59" green="130" blue="246" alpha="255"/>
+				<coordinates left="69.92551117509998" top="2177.5564591878" width="200" height="300"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="Participation" uuid="05E8469AB5074479991A8CD3B5B6477B">
+		<field name="UUID" id="1" type="10" uuid="231BB40DC65F49EBBFFBB39F01956843" unique="true" not_null="true" autosequence="true" />
+		<field name="employee_ID" uuid="00490C96F7E44E70826B50251BBC0B01" type="10" id="2" />
+		<field name="meeting_ID" uuid="9CD9965BA7774538B9C4DB7EDDEF67DD" type="10" id="3" />
+		<field name="status" id="4" type="10" uuid="0A24959AD82849B0AD26869974307382" />
+		<primary_key field_name="UUID" field_uuid="231BB40DC65F49EBBFFBB39F01956843" />
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="6">
+				<color red="41" green="219" blue="37" alpha="255"/>
+				<coordinates left="1393.4315171181001" top="773.09411193546" width="200" height="300"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="Team" uuid="ACDB18D288E34BCBA860D30EF9491779">
+		<field name="UUID" id="1" type="10" uuid="4D2AB6B754674C06AF50C638326916C8" unique="true" not_null="true" autosequence="true" />
+		<field name="manager_ID" uuid="19128BE643534F38AF98E3BDBBC7058A" type="10" id="3" />
+		<field name="title" id="4" type="10" uuid="D0714C351A0A40B3B4E3154154B3F921" />
+		<primary_key field_name="UUID" field_uuid="4D2AB6B754674C06AF50C638326916C8" />
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="6">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="-467.17800284367" top="1365.90647157753" width="200" height="300"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="Floor" uuid="E18F575EE2154FC08B002ACDE17EADBD">
+		<field name="UUID" id="1" type="10" uuid="04EB507765DC4F11AC4712B30C025A20" unique="true" not_null="true" autosequence="true" />
+		<field name="label" id="2" type="10" uuid="52C4ABC1C9E34547A8B499533AAED59E" />
+		<field name="local_ID" uuid="E12FD3CAAF9648B88AAAF8F0495A3A26" type="10" id="3" />
+		<field name="number" id="4" type="6" uuid="44D968B375B644BAA13B612A865F2113" />
+		<primary_key field_name="UUID" field_uuid="04EB507765DC4F11AC4712B30C025A20" />
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="6">
+				<color red="59" green="130" blue="246" alpha="255"/>
+				<coordinates left="-42.26583520337999" top="1501.0162405475899" width="200" height="300"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="Room" uuid="E5A3DCD32DD14696A0C5BE827941AEC3">
+		<field name="UUID" id="1" type="10" uuid="C9C64D5047AA48B4B2041275254BFEDB" unique="true" not_null="true" autosequence="true" />
+		<field name="label" id="2" type="10" uuid="24B8D6291B5B4F938A4F3EB38FCB375E" />
+		<field name="type" id="3" type="10" uuid="C996907352984CC5944C4C382A33CF61" />
+		<field name="floor_ID" uuid="4468442C7EB248A08F5876F60306C7E0" type="10" id="4" />
+		<primary_key field_name="UUID" field_uuid="C9C64D5047AA48B4B2041275254BFEDB" />
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="6">
+				<color red="59" green="130" blue="246" alpha="255"/>
+				<coordinates left="568.057250393924" top="2026.6646273647" width="200" height="300"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="Notice" uuid="BB7B02A44E964034B9EF3BFF27267C32">
+		<field name="UUID" id="1" type="10" uuid="87C7B2DD08CE4109A4D74DFB1DD1EBC0" unique="true" not_null="true" autosequence="true" />
+		<field name="employee_ID" uuid="80D76F81E1414A6585560BFB64215D8B" type="10" id="2" />
+		<field name="isAccepted" id="3" type="1" uuid="B916D660DDE34951A8DB2095FB87BFF6" />
+		<field name="comment" id="4" type="10" uuid="F95F0212537643669DABDDFAECB85840" />
+		<field name="excuse" id="5" type="10" uuid="CF527CB3BA5B4780ADBB0CFBA29E0544" />
+		<field name="message" id="6" type="10" uuid="CCD0784061484E26866C6F1E0CB01A38" />
+		<field name="meeting_ID" uuid="2B78CA82D35343C3A330679A9FE0E67E" type="10" id="7" />
+		<field name="status_ID" uuid="832CE457A5754F6CBEF4A1965CFC8F23" type="10" id="8" />
+		<field name="attachment" id="9" type="21" uuid="0FDF3D7C3E6C4178999D73CE8465F89D" />
+		<field name="createdAt" id="10" type="8" uuid="3798024BC603428EAA9096C09C1C8C53" />
+		<primary_key field_name="UUID" field_uuid="87C7B2DD08CE4109A4D74DFB1DD1EBC0" />
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="6">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="12.824079372909978" top="541.97075678005" width="200" height="300"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="Activity" uuid="842D8737ABC041A0A80ADB4DA613828B">
+		<field name="UUID" id="1" type="10" uuid="F9BBFE9C113C48A18AC8A3E97A789FEA" unique="true" not_null="true" autosequence="true" />
+		<field name="employee_ID" uuid="0AADC2E8313D4644A4CF9130EB8A4AB7" type="10" id="2" />
+		<field name="type" id="3" type="10" uuid="D274266AB0184E4EAAD3C3FD99AF1E45" />
+		<field name="message" id="4" type="10" uuid="A507082477424FA4B4EED176061397FD" />
+		<field name="creationDate" id="5" type="8" uuid="5B6D40708A294996A766A15D5E545AA7" />
+		<field name="creationHour" id="6" type="9" uuid="C64AAC638B034F5D9A6587C2A921DA46" />
+		<field name="meeting_ID" uuid="D632B76AE4A4427080189A3BA83B5C27" type="10" id="7" />
+		<field name="status_ID" uuid="7E23361C857347049F67B3CDA8BF7DA8" type="10" id="8" />
+		<primary_key field_name="UUID" field_uuid="F9BBFE9C113C48A18AC8A3E97A789FEA" />
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="6">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="101.49919197359998" top="1202.80116704236" width="200" height="300"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="Setting" uuid="97CB63F1DDD8447086588B6E60CCB246">
+		<field name="UUID" id="1" type="10" uuid="D1B0C58DE3DC42A7B0A25C586CA0FC7D" unique="true" not_null="true" autosequence="true" />
+		<field name="label" id="2" type="10" uuid="02034D63FD4F44D18D243F985B717AB1" />
+		<field name="value" id="3" type="10" uuid="3F5E591518B24439AB541646698B01C5" />
+		<primary_key field_name="UUID" field_uuid="D1B0C58DE3DC42A7B0A25C586CA0FC7D" />
+		<table_extra>
+			<editor_table_info fields_ordering="1" displayable_fields_count="6">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="1099.5338546856" top="296.67123201424" width="200" height="300"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<relation uuid="A4E5A3A3B06F4124AF4AE15692201ED5" name_Nto1="employee" name_1toN="participations" state="1">
+		<related_field kind="source">
+			<field_ref uuid="00490C96F7E44E70826B50251BBC0B01" name="employee_ID">
+				<table_ref uuid="05E8469AB5074479991A8CD3B5B6477B" name="Participation"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="2EE9825FD0364306BF5406331920453F" name="UUID">
+				<table_ref uuid="BEB5A747247B4EABB3C673F479B99AB7" name="Employee"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="74EFFA23C3BD4CFE8779BA35ECE49AAF" name_Nto1="createdBy" name_1toN="createdStatus" state="1">
+		<related_field kind="source">
+			<field_ref uuid="D3AD3E586F5B47ABB5F662BF83A54EC0" name="createdBy_ID">
+				<table_ref uuid="4A9A78132BCD440886C5CA49B94EF0E3" name="Status"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="2EE9825FD0364306BF5406331920453F" name="UUID">
+				<table_ref uuid="7C165D1E794742B5A238D54CD287066C" name="Employee"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="60DAD2F8D3DC44B1AA58B42C25944C8E" name_Nto1="director" name_1toN="directer_of" state="1">
+		<related_field kind="source">
+			<field_ref uuid="70923BE7310F44E4AD91032F1D79ADE9" name="director_ID">
+				<table_ref uuid="C14FCF7FA46B4174BD6F6266BBAEF880" name="Company"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="2EE9825FD0364306BF5406331920453F" name="UUID">
+				<table_ref uuid="4211C72B25A843FFA98CB01C8F7A926E" name="Employee"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="83AA738574A54E8B87F4C5B0845905A3" name_Nto1="manager" name_1toN="manager_of" state="1">
+		<related_field kind="source">
+			<field_ref uuid="19128BE643534F38AF98E3BDBBC7058A" name="manager_ID">
+				<table_ref uuid="ACDB18D288E34BCBA860D30EF9491779" name="Team"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="2EE9825FD0364306BF5406331920453F" name="UUID">
+				<table_ref uuid="9AF428C0917C458CB3DD221F26AFA2C4" name="Employee"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="1E9E2400FBA6473F95348BDACF8B1E4A" name_Nto1="employee" name_1toN="notifications" state="1">
+		<related_field kind="source">
+			<field_ref uuid="80D76F81E1414A6585560BFB64215D8B" name="employee_ID">
+				<table_ref uuid="BB7B02A44E964034B9EF3BFF27267C32" name="Notice"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="2EE9825FD0364306BF5406331920453F" name="UUID">
+				<table_ref uuid="D3B2CB13839F40BEB0F2156E7E56AB15" name="Employee"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="EFF1DF81E24645A3B09CB64C73F476D0" name_Nto1="employee" name_1toN="activities" state="1">
+		<related_field kind="source">
+			<field_ref uuid="0AADC2E8313D4644A4CF9130EB8A4AB7" name="employee_ID">
+				<table_ref uuid="842D8737ABC041A0A80ADB4DA613828B" name="Activity"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="2EE9825FD0364306BF5406331920453F" name="UUID">
+				<table_ref uuid="693A3336FE0F4121B62E472D4358EF66" name="Employee"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="77A2978BFA69410F84D1F380B79BDA22" name_Nto1="createdBy" name_1toN="createdMeetings" state="1">
+		<related_field kind="source">
+			<field_ref uuid="A6B76DB8473F446D8225BD4102884FF0" name="createdBy_ID">
+				<table_ref uuid="C07791A380704C77BA559432185F142E" name="Meeting"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="2EE9825FD0364306BF5406331920453F" name="UUID">
+				<table_ref uuid="97300C5E6EBD4DC398FF777326A0FCEE" name="Employee"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="5461FC63552A4C079E78166EA158CB15" name_Nto1="employee" name_1toN="status" state="1">
+		<related_field kind="source">
+			<field_ref uuid="DBBC7D839F794B7BB0874BF5D3403121" name="employee_ID">
+				<table_ref uuid="4A9A78132BCD440886C5CA49B94EF0E3" name="Status"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="2EE9825FD0364306BF5406331920453F" name="UUID">
+				<table_ref uuid="C32B31B00C3148A9886796E07AAF046B" name="Employee"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="951E09EF532B4E71BADF0A9933BBE39A" name_Nto1="company" name_1toN="employees" state="1">
+		<related_field kind="source">
+			<field_ref uuid="85BB3BC7C87B425DBF9259401E6C6337" name="company_ID">
+				<table_ref uuid="22117192AB6A4E979E339E4888619210" name="Employee"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="A6D873F4D6F24E4D910E01610B4EE063" name="UUID">
+				<table_ref uuid="178218F6C242484BA75A80A5F3C649B2" name="Company"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="7BF2048A42544C4998189AC9C60C1E10" name_Nto1="company" name_1toN="locals" state="1">
+		<related_field kind="source">
+			<field_ref uuid="8A4C449B1AB74F32A37E6625C49EE175" name="company_ID">
+				<table_ref uuid="584F2D5F2F2740E78247816B85924A40" name="Local"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="A6D873F4D6F24E4D910E01610B4EE063" name="UUID">
+				<table_ref uuid="C6A4C4665CEA44E8A6B4B26F529A0BE4" name="Company"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="02BB275EA10745FAB3ECE9ACB2C4A999" name_Nto1="status" name_1toN="noticeSelection" state="1">
+		<related_field kind="source">
+			<field_ref uuid="832CE457A5754F6CBEF4A1965CFC8F23" name="status_ID">
+				<table_ref uuid="BB7B02A44E964034B9EF3BFF27267C32" name="Notice"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="D4B4E59186EB406BB0230D78CE2116F1" name="UUID">
+				<table_ref uuid="C265B7DA1F6A4183B994D5C074E1B646" name="Status"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="44FDF499A1954B41A4832A64C24E3296" name_Nto1="status" name_1toN="activities" state="1">
+		<related_field kind="source">
+			<field_ref uuid="7E23361C857347049F67B3CDA8BF7DA8" name="status_ID">
+				<table_ref uuid="842D8737ABC041A0A80ADB4DA613828B" name="Activity"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="D4B4E59186EB406BB0230D78CE2116F1" name="UUID">
+				<table_ref uuid="85FBAB2B14734A6191645BB96931CA39" name="Status"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="32561FEF96B846AABF895FD0C0064E89" name_Nto1="meeting" name_1toN="participations" state="1">
+		<related_field kind="source">
+			<field_ref uuid="9CD9965BA7774538B9C4DB7EDDEF67DD" name="meeting_ID">
+				<table_ref uuid="05E8469AB5074479991A8CD3B5B6477B" name="Participation"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="50838CFA2FDD44F0A76224F9D886C6ED" name="UUID">
+				<table_ref uuid="B36C892D52AB4E09AA8B07891EAB44AE" name="Meeting"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="EBD587C4041340CD9587CCCBCA32C30C" name_Nto1="meeting" name_1toN="notification" state="1">
+		<related_field kind="source">
+			<field_ref uuid="2B78CA82D35343C3A330679A9FE0E67E" name="meeting_ID">
+				<table_ref uuid="BB7B02A44E964034B9EF3BFF27267C32" name="Notice"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="50838CFA2FDD44F0A76224F9D886C6ED" name="UUID">
+				<table_ref uuid="4F10CDED1F084B04864639CC28CABD73" name="Meeting"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="44C1AC749AA74EDE9F28564C0A4CC09D" name_Nto1="meeting" name_1toN="activities" state="1">
+		<related_field kind="source">
+			<field_ref uuid="D632B76AE4A4427080189A3BA83B5C27" name="meeting_ID">
+				<table_ref uuid="842D8737ABC041A0A80ADB4DA613828B" name="Activity"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="50838CFA2FDD44F0A76224F9D886C6ED" name="UUID">
+				<table_ref uuid="1E9E813DDA60457D93E0217E613001CA" name="Meeting"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="29A2F15FF05F41E1A81994AC68808245" name_Nto1="local" name_1toN="floors" state="1">
+		<related_field kind="source">
+			<field_ref uuid="E12FD3CAAF9648B88AAAF8F0495A3A26" name="local_ID">
+				<table_ref uuid="E18F575EE2154FC08B002ACDE17EADBD" name="Floor"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="1CFE137590D44A3DB2058508BAF85906" name="UUID">
+				<table_ref uuid="77DB9E207A3B420B874C773ADE3E3D4C" name="Local"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="67CDFAB7650A4BA795F1BD2513816944" name_Nto1="team" name_1toN="employees" state="1">
+		<related_field kind="source">
+			<field_ref uuid="35CB1B12B5D646B39DFB9075C39601E3" name="team_ID">
+				<table_ref uuid="22117192AB6A4E979E339E4888619210" name="Employee"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="4D2AB6B754674C06AF50C638326916C8" name="UUID">
+				<table_ref uuid="F8CDE549333C4B72BD4051D12A718252" name="Team"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="364680EF13BE4D359B54005B41E4B744" name_Nto1="floor" name_1toN="rooms" state="1">
+		<related_field kind="source">
+			<field_ref uuid="4468442C7EB248A08F5876F60306C7E0" name="floor_ID">
+				<table_ref uuid="E5A3DCD32DD14696A0C5BE827941AEC3" name="Room"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="04EB507765DC4F11AC4712B30C025A20" name="UUID">
+				<table_ref uuid="8D118A9CC5674E0B851255CDB65095E3" name="Floor"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="672365314AD0465BBB11B851871F0E12" name_Nto1="room" name_1toN="employees" state="1">
+		<related_field kind="source">
+			<field_ref uuid="84794122D7894F838295B132EEBE6DC0" name="room_ID">
+				<table_ref uuid="22117192AB6A4E979E339E4888619210" name="Employee"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="C9C64D5047AA48B4B2041275254BFEDB" name="UUID">
+				<table_ref uuid="FF7D2879A5C24030BDF4EDF60F96125C" name="Room"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<relation uuid="83CFFC3092B448F9818173F3107958A7" name_Nto1="room" name_1toN="meetings" state="1">
+		<related_field kind="source">
+			<field_ref uuid="43F319C04CE14EB5A9D0F2A077B0973E" name="room_ID">
+				<table_ref uuid="C07791A380704C77BA559432185F142E" name="Meeting"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="C9C64D5047AA48B4B2041275254BFEDB" name="UUID">
+				<table_ref uuid="8D23B5CD5F8E424FB3AD7CCEEE32A5D5" name="Room"/>
+			</field_ref>
+		</related_field>
+	</relation>
+	<index kind="regular" unique_keys="true" uuid="7DEE0E09A1C3440D8E15DD8481AF78F3" type="7">
+		<field_ref uuid="2EE9825FD0364306BF5406331920453F" name="UUID">
+			<table_ref uuid="22117192AB6A4E979E339E4888619210" name="Employee"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="false" uuid="D4B3A81169094632949ACC7C9EAA790F" type="1">
+		<field_ref uuid="85BB3BC7C87B425DBF9259401E6C6337" name="company_ID">
+			<table_ref uuid="22117192AB6A4E979E339E4888619210" name="Employee"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="false" uuid="6374C60651514204B46B62AD33611367" type="1">
+		<field_ref uuid="35CB1B12B5D646B39DFB9075C39601E3" name="team_ID">
+			<table_ref uuid="22117192AB6A4E979E339E4888619210" name="Employee"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="false" uuid="FA6F66B39793437AA4B946EAF7F8116E" type="1">
+		<field_ref uuid="84794122D7894F838295B132EEBE6DC0" name="room_ID">
+			<table_ref uuid="22117192AB6A4E979E339E4888619210" name="Employee"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="164FDF3A28494229BC3A749CC3912F81" type="7">
+		<field_ref uuid="A6D873F4D6F24E4D910E01610B4EE063" name="UUID">
+			<table_ref uuid="C14FCF7FA46B4174BD6F6266BBAEF880" name="Company"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="false" uuid="116E984FC648436A859F68BD8F368419" type="1">
+		<field_ref uuid="70923BE7310F44E4AD91032F1D79ADE9" name="director_ID">
+			<table_ref uuid="C14FCF7FA46B4174BD6F6266BBAEF880" name="Company"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="6B0E1E19C7FE4940A08365BA9182EA27" type="7">
+		<field_ref uuid="D4B4E59186EB406BB0230D78CE2116F1" name="UUID">
+			<table_ref uuid="4A9A78132BCD440886C5CA49B94EF0E3" name="Status"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="false" uuid="DE231A27AA0D4F0F8DA27478BE446A98" type="1">
+		<field_ref uuid="DBBC7D839F794B7BB0874BF5D3403121" name="employee_ID">
+			<table_ref uuid="4A9A78132BCD440886C5CA49B94EF0E3" name="Status"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="false" uuid="B65F9A5F0D104EB183391DF63B7E2F1A" type="1">
+		<field_ref uuid="D3AD3E586F5B47ABB5F662BF83A54EC0" name="createdBy_ID">
+			<table_ref uuid="4A9A78132BCD440886C5CA49B94EF0E3" name="Status"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="3B031EC8D4D44BED8675A47954F19A22" type="7">
+		<field_ref uuid="50838CFA2FDD44F0A76224F9D886C6ED" name="UUID">
+			<table_ref uuid="C07791A380704C77BA559432185F142E" name="Meeting"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="false" uuid="58DEAF8524E04B6CA9D7928F27F0C906" type="1">
+		<field_ref uuid="A6B76DB8473F446D8225BD4102884FF0" name="createdBy_ID">
+			<table_ref uuid="C07791A380704C77BA559432185F142E" name="Meeting"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="false" uuid="A9A2023335894E7EB7C6575372952C07" type="1">
+		<field_ref uuid="43F319C04CE14EB5A9D0F2A077B0973E" name="room_ID">
+			<table_ref uuid="C07791A380704C77BA559432185F142E" name="Meeting"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="E07C3F7022D94F669BB2AEAE78AE98DA" type="7">
+		<field_ref uuid="1CFE137590D44A3DB2058508BAF85906" name="UUID">
+			<table_ref uuid="584F2D5F2F2740E78247816B85924A40" name="Local"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="false" uuid="5B2A18160B4B49C5B4F4615126AB5AA6" type="1">
+		<field_ref uuid="8A4C449B1AB74F32A37E6625C49EE175" name="company_ID">
+			<table_ref uuid="584F2D5F2F2740E78247816B85924A40" name="Local"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="C523021FF0A64211837F75DF424EE704" type="7">
+		<field_ref uuid="231BB40DC65F49EBBFFBB39F01956843" name="UUID">
+			<table_ref uuid="05E8469AB5074479991A8CD3B5B6477B" name="Participation"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="false" uuid="504C2B3390F040CB8D4C5C62968B8B8E" type="1">
+		<field_ref uuid="00490C96F7E44E70826B50251BBC0B01" name="employee_ID">
+			<table_ref uuid="05E8469AB5074479991A8CD3B5B6477B" name="Participation"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="false" uuid="8501D8A390DE4F7E9108C4F8903D49C9" type="1">
+		<field_ref uuid="9CD9965BA7774538B9C4DB7EDDEF67DD" name="meeting_ID">
+			<table_ref uuid="05E8469AB5074479991A8CD3B5B6477B" name="Participation"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="04C5993450D348FA82B69396ADF64A41" type="7">
+		<field_ref uuid="4D2AB6B754674C06AF50C638326916C8" name="UUID">
+			<table_ref uuid="ACDB18D288E34BCBA860D30EF9491779" name="Team"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="false" uuid="93D2D91CBDB14E73921997EB263F984C" type="1">
+		<field_ref uuid="19128BE643534F38AF98E3BDBBC7058A" name="manager_ID">
+			<table_ref uuid="ACDB18D288E34BCBA860D30EF9491779" name="Team"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="A098E67BFAFA4CCDABC417CB2E029B1F" type="7">
+		<field_ref uuid="04EB507765DC4F11AC4712B30C025A20" name="UUID">
+			<table_ref uuid="E18F575EE2154FC08B002ACDE17EADBD" name="Floor"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="false" uuid="27BD01AF08814B18BCE6BC2E67E1EF3A" type="1">
+		<field_ref uuid="E12FD3CAAF9648B88AAAF8F0495A3A26" name="local_ID">
+			<table_ref uuid="E18F575EE2154FC08B002ACDE17EADBD" name="Floor"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="5719F17C675E40FF8ED4D25480C4449E" type="7">
+		<field_ref uuid="C9C64D5047AA48B4B2041275254BFEDB" name="UUID">
+			<table_ref uuid="E5A3DCD32DD14696A0C5BE827941AEC3" name="Room"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="false" uuid="89C94A77728540B2960E92E93A3F5B96" type="1">
+		<field_ref uuid="4468442C7EB248A08F5876F60306C7E0" name="floor_ID">
+			<table_ref uuid="E5A3DCD32DD14696A0C5BE827941AEC3" name="Room"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="069EE7B5DA4643D1859EDEA9189BAA17" type="7">
+		<field_ref uuid="87C7B2DD08CE4109A4D74DFB1DD1EBC0" name="UUID">
+			<table_ref uuid="BB7B02A44E964034B9EF3BFF27267C32" name="Notice"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="false" uuid="C19F9F11D5F44E89856E7291B53D4957" type="1">
+		<field_ref uuid="80D76F81E1414A6585560BFB64215D8B" name="employee_ID">
+			<table_ref uuid="BB7B02A44E964034B9EF3BFF27267C32" name="Notice"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="false" uuid="988CF01AD7A94644B7050EE0B9A8D7BF" type="1">
+		<field_ref uuid="2B78CA82D35343C3A330679A9FE0E67E" name="meeting_ID">
+			<table_ref uuid="BB7B02A44E964034B9EF3BFF27267C32" name="Notice"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="false" uuid="B1690C1F5C434FBEA5BECD1FC442F2E1" type="1">
+		<field_ref uuid="832CE457A5754F6CBEF4A1965CFC8F23" name="status_ID">
+			<table_ref uuid="BB7B02A44E964034B9EF3BFF27267C32" name="Notice"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="65A52C8DD44741278080BE245037E87D" type="7">
+		<field_ref uuid="F9BBFE9C113C48A18AC8A3E97A789FEA" name="UUID">
+			<table_ref uuid="842D8737ABC041A0A80ADB4DA613828B" name="Activity"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="false" uuid="856162CAB73C4F54B6D6D41FDD111559" type="1">
+		<field_ref uuid="0AADC2E8313D4644A4CF9130EB8A4AB7" name="employee_ID">
+			<table_ref uuid="842D8737ABC041A0A80ADB4DA613828B" name="Activity"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="false" uuid="D27317FA1BCA47A080177B0A4213E0C2" type="1">
+		<field_ref uuid="D632B76AE4A4427080189A3BA83B5C27" name="meeting_ID">
+			<table_ref uuid="842D8737ABC041A0A80ADB4DA613828B" name="Activity"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="false" uuid="3CC5E21E03E24AD5B5CDD7705A7A8BE8" type="1">
+		<field_ref uuid="7E23361C857347049F67B3CDA8BF7DA8" name="status_ID">
+			<table_ref uuid="842D8737ABC041A0A80ADB4DA613828B" name="Activity"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="BD05633B2E8F4F0A863CEFBB57558334" type="7">
+		<field_ref uuid="D1B0C58DE3DC42A7B0A25C586CA0FC7D" name="UUID">
+			<table_ref uuid="97CB63F1DDD8447086588B6E60CCB246" name="Setting"/>
+		</field_ref>
+	</index>
+</base>

@@ -1,0 +1,100 @@
+{
+	"classes": [
+		{
+			"name": "matrixCss",
+			"content": "self .FdVirtualGrid > .innerScrollContainer > div:hover {\n\tbackground: transparent; \n}\nself .FdVirtualGrid > div > .selected {\n\tbackground-color: transparent;\n}\n\nself .FdVirtualGrid > div >.selected .matrixItem{\n\tborder:1px solid rgb(46, 89, 189);\n\tcolor: rgb(46, 89, 189);\n}\n\nself .FdVirtualGrid > div .matrixItem{\n\tcolor: #777E90;\n}",
+			"parentId": null,
+			"id": "S3U-UnTfeQwon_glzIG1J"
+		},
+		{
+			"name": "flex-grow",
+			"content": "self {\n\tflex-grow: 1;\n}",
+			"parentId": null,
+			"id": "_AxCAUVTURubu-U1-VVHd"
+		},
+		{
+			"name": "tabCss",
+			"content": "self button[role=\"tab\"] {\n\tfont-size: 24px !important;\n\tfont-weight: 600 !important;\n\tline-height: normal !important;\n\tletter-spacing: 0em ;\n\ttext-align: left ;\n\tmargin-right: 50px !important;\n\tcolor: #B2B6C6;\n}\nself button[data-headlessui-state=\"selected\"] {\n\tcolor: #2E59BD;\n}\nself button[data-headlessui-state=\"selected\"]:after {\n\tbackground-color: #2E59BD;\n}\nself div:nth-child(2):not([class]) {\n\theight: calc(100% - 52px);\n}\n\n/*@media screen and (max-width: 1350px) {\n\tself button[role=\"tab\"] {\n\t\tfont-size: 1.8vw !important;\n\t}\n}\n\n@media screen and (max-width: 600px) {\n\tself div:nth-child(2):not([class]) {\n\theight: calc(100% - 40px);\n\t}\n\n\tself button[role=\"tab\"] {\n\tfont-size: 14px !important;\n\tmargin-right: 30px !important;\n\t}\n}*/",
+			"parentId": null,
+			"id": "cO9la8lQvqC4fU1Q0JCQe"
+		},
+		{
+			"name": "visibility",
+			"content": "self {\ndisplay: none !important;\n}",
+			"parentId": null,
+			"id": "N_FgEhPPatjUx-GZL_H1X"
+		},
+		{
+			"name": "gabResponsive",
+			"content": "@media only screen and (max-width: 600px) {\n  self {\n\tgap: 5px\n\t}\n}\n\n@media only screen and (min-width: 600px) {\n  self {\n\tgap: 15px\n\t}\n}",
+			"parentId": null,
+			"id": "srxFYcNrSUJ4bl--415ac"
+		},
+		{
+			"name": "fieldsetBox",
+			"content": "self {\n\tbox-shadow: 0px 0px 4px rgba(14, 14, 14, 0.2);\n\tbackground-color: #FFFFFF;\n}",
+			"parentId": null,
+			"id": "B5YwAm0Z7yowOCPfQH-Uf"
+		},
+		{
+			"name": "matrixItem",
+			"content": "self {\n\n}",
+			"parentId": null,
+			"id": "7t7RnI_BA7uar4nRyQmpe"
+		},
+		{
+			"name": "statusLabelCss",
+			"content": "self:has(span[title=\"waiting\"]) {\n\tbackground: #FAEEE0;\n\tcolor: #F5A652;\n\tpadding: 3px;\n\tborder-radius: 10px;\n}\n\nself:has(span[title=\"accepted\"]) {\n\tbackground: #E4F1FC;\n\tcolor: #56AEF9;\n\tpadding: 3px;\n\tborder-radius: 10px;\n}\n\nself:has(span[title=\"rejected\"]) {\n\tbackground: #F8E8EB;\n\tcolor: #EEAFBA;\n\tpadding: 3px;\n\tborder-radius: 10px;\n}",
+			"parentId": null,
+			"id": "Sh2NcdKVql0GhkXLn5gdi"
+		},
+		{
+			"name": "mobile",
+			"content": "@media only screen and (min-width: 600px) {\n  self{\n    display: none !important;\n  }\n}",
+			"parentId": null,
+			"id": "20SoFipF6rX2zbJACPx0A"
+		},
+		{
+			"name": "desktop",
+			"content": "@media only screen and (max-width: 600px) {\n  self{\n    display: none !important;\n  }\n}",
+			"parentId": null,
+			"id": "FEnrWrPkX0Y68MXH3JV6V"
+		},
+		{
+			"name": "activeButton",
+			"content": "self{\nbox-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n}",
+			"parentId": null,
+			"id": "sfSvpjwd93VWI3xGcHF5A"
+		},
+		{
+			"name": "matrixItem",
+			"content": "self{\n\tcursor: pointer;\n\tpadding-left: 40px;\n\tpadding-right: 40px;\n}\n@media screen and (max-width: 1000px) {\n  self{\n    padding-left: 5px;\n\t\tpadding-right: 5px;\n\t\tfont-size:14px;\n  }\n}",
+			"parentId": null,
+			"id": "7t7RnI_BA7uar4nRyQmpe"
+		},
+		{
+			"name": "matrixCSS",
+			"content": "self .FdVirtualGrid > .innerScrollContainer > div:hover {\n\tbackground: transparent; \n}\nself .FdVirtualGrid > div > .selected {\n\tbackground-color: transparent;\n}\n\nself .FdVirtualGrid > div >.selected .matrixItem{\n\tborder:1px solid rgb(46, 89, 189);\n\tcolor: rgb(46, 89, 189);\n}\n\nself .FdVirtualGrid > div .matrixItem{\n\tcolor: #777E90;\n}",
+			"parentId": null,
+			"id": "V7r7vHZGTVNMF-lWbJf19"
+		},
+		{
+			"name": "calendar",
+			"content": "self .scheduler-navigation{\n background-color: #F5F6F8 !important;\n padding: 12px;\n border-radius: 10px;\n}\nself .current-day{\n background-color: #F5F6F8 !important;\n padding: 12px;\n border-radius: 10px;\n}\nself .element-title[title='remote'] {\n  color: #2D3E3E  !important;\n}\nself .element-container:has(span[title='remote']) {\n  border-left-color:  #5BBDBD!important;\n\tbackground-color:#E6F9F9!important;\n}\nself .element-container:has(span[title='onSite']) {\n\tbackground-color:#D8EFFF !important;\n\tborder-left-color: #5FB2F9 !important;\n}\nself .element-container:has(span[title='vacay']) {\n\tborder-left-color:#F5A653 !important;\n\tbackground-color:#FFE8D1 !important ;\n}\nself .element-container:has(span[title='sick']) {\n\tborder-left-color: #EB7C90!important;\n\tbackground-color: #FAD9DF!important;\n}",
+			"parentId": null,
+			"id": "1yZsVLutHohoDDCBfMT2C"
+		},
+		{
+			"name": "mobileHeader",
+			"content": "@media only screen and (max-width: 600px){\n\tself >div>button {\n\t\tfont-size: 15px !important;\n\t}\n\tself >button {\n\t\tfont-size: 12px !important;\n\t}\n}",
+			"parentId": null,
+			"id": "SEq45JS6Oo08G7yG3XAOa"
+		},
+		{
+			"name": "mobileDialog",
+			"content": "@media only screen and (max-width: 600px) {\n\tself{\n\t\tposition: absolute;\n\t\tright: 0px;\n\t\twidth: 400px !important;\n\t}\n}",
+			"parentId": null,
+			"id": "W8ZnfwDabtyVlLFSBb-l_"
+		}
+	]
+}

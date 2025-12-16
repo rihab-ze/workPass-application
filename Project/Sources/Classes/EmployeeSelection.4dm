@@ -1,0 +1,24 @@
+Class extends EntitySelection
+
+exposed function addInList($options : variant) : cs.EmployeeSelection
+	var $selection: cs.EmployeeSelection
+	$selection := this.copy()
+	$selection.add($options)
+	return $selection
+	
+exposed function removeFromList($options : variant) : cs.EmployeeSelection
+	var $selection: cs.EmployeeSelection
+	$selection := this.copy()
+	return $selection.minus($options)
+
+	
+exposed function stats()->$result : object
+	var $status: cs.StatusSelection
+	var $obj: object
+	$status := this.status.query("sDate >= :1 & sDate <= :2"; storage.filterDate.startDate; storage.filterDate.endDate)
+	$result := {}
+	$result.onSite := ($status.length # 0) ? round(($status.query("label = :1"; "onSite").length/$status.length)*100; 0) : 0
+	$result.remote := ($status.length # 0) ? round(($status.query("label = :1"; "remote").length/$status.length)*100; 0) : 0
+	$result.vacay := ($status.length # 0) ? round(($status.query("label = :1"; "vacay").length/$status.length)*100; 0) : 0
+	$result.sick := ($status.length # 0) ? round(($status.query("label = :1"; "sick").length/$status.length)*100; 0) : 0
+	

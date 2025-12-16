@@ -1,0 +1,8 @@
+Class extends Entity
+
+exposed function get createdByAvatar()->$createdByAvatar : picture
+	if (this.meeting # null)
+		$createdByAvatar := this.meeting.createdBy.avatar
+	else
+		$createdByAvatar := this.status.createdBy.avatar
+	end if

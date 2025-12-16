@@ -1,0 +1,15 @@
+extends DataClass
+ 
+function event restrict() -> result : cs.SettingSelection
+	switch
+		: (session.hasPrivilege("Admin"))
+			return null
+		: (session.hasPrivilege("Employees"))
+			return this.newSelection()
+		: (session.hasPrivilege("Manager"))
+			return this.newSelection()
+	end
+
+exposed Function getKey(key: string) : string
+	var record = this.query("label == :1", key).first()
+	return record ? record.value: ""

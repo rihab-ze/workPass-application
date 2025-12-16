@@ -1,0 +1,28 @@
+extends DataClass
+
+function create(employee : cs.EmployeeEntity, meeting : cs.MeetingEntity, status : cs.StatusEntity, attachment : object, message : string)
+	var notification : cs.NoticeEntity
+	notification = this.new()
+	notification.employee = employee
+	notification.createdAt = currentDate()
+	notification.comment = ""
+	notification.attachment = attachment
+	notification.message = message
+	notification.meeting = meeting
+	notification.status = status
+	notification.save()
+	
+exposed function searchByType(searchType : string) : cs.NoticeSelection
+	var currentUser : cs.EmployeeEntity
+	currentUser = ds.Employee.getCurrentUser()
+	if (currentUser != null)
+		if (searchType == "")
+			return currentUser.notifications.query("isAccepted == null")
+		end 
+		if ("m me mee meet meeti meetin meeting"%searchType) // ??!!
+			return currentUser.notifications.query("meeting.UUID != null")
+		end 
+		if ("s st sta stat statu status"%searchType) // ??!!
+			return currentUser.notifications.query("status.UUID != null")
+		end 
+	end

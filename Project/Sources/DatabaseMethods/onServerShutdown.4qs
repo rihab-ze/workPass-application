@@ -1,0 +1,26 @@
+var error : object
+var obj : object
+var stopExists : boolean
+
+try
+	//Check if the QodlyEvents singleton exists
+	if (cs.QodlyEvents != null)
+		obj = cs.QodlyEvents.new()
+		stopExists = objectIsDefined(obj, "onStop")
+		if (stopExists == false)
+			logEvent("The singleton cs.QodlyEvents function onStop does not exist", kErrorMessage)
+		else
+			cs.QodlyEvents.me.onStop()
+		end 
+	else
+		logEvent("The singleton cs.QodlyEvents does not exist", kErrorMessage)
+	end 
+
+catch
+	logEvent("Error on stop", kErrorMessage)
+	
+	forEach (error, lastErrors)
+		logEvent("The error is "+string(error.errCode)+" - "+error.message, kErrorMessage)
+	end 
+	
+end

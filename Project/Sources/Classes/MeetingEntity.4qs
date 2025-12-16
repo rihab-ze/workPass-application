@@ -1,0 +1,77 @@
+extends Entity
+
+exposed function create(participants : cs.EmployeeSelection)  // where's the return declaration
+	var participation : cs.ParticipationEntity
+	var participant : cs.EmployeeEntity
+	var meetSaving : object
+	var currentUser : cs.EmployeeEntity = ds.Employee.getCurrentUser()
+	// it's the same queries !!!!
+	var myMeetings : cs.MeetingSelection = ds.Meeting.query("participations.employee.UUID  == :1 ", currentUser.UUID)
+	var output : cs.MeetingSelection = myMeetings.copy()
+	switch 
+		: (this.subject == null)
+			webForm.setWarning("Please enter a meeting subject!")
+		: (this.type == null)
+			webForm.setWarning("Please select a meeting type!")
+		: (this.mDate == null)
+			webForm.setWarning("Please select a meeting starting date!")
+		: ((dayNumber(this.mDate) == 1) || (dayNumber(this.mDate) == 7))
+			webForm.setWarning("Please select a working day")
+		: (this.startTime == null)
+			webForm.setWarning("Please select a meeting starting hour!")
+		: (this.endTime == null)
+			webForm.setWarning("Please select a meeting ending hour!")
+		: (this.mDate < currentDate())
+			webForm.setWarning("Please select a futuristic meeting date!")
+		: (this.startTime > this.endTime)
+			webForm.setWarning("Please select a logical time range!")
+			
+		else 
+			this.createdBy = currentUser
+			meetSaving = this.save()
+			use (session.storage)
+				session.storage.createdMeeting = newSharedObject("UUID", this.UUID)
+			end 
+			forEach (participant, participants)
+				participation = ds.Participation.new()
+				participation.employee = participant
+				participation.meeting = this
+				participation.status = "waiting"
+				participation.save()
+			end 
+			if (meetSaving.success)
+				trace
+			currentUser.code = storage.code.code
+			currentUser.save() 
+				webForm.setMessage("Your meeting was created successfully!")
+				webForm["newMeeting"].hide()
+				ds.Notice.create(participant, this, null, null, (participant.UUID == this.createdBy.UUID) ? "You created a new meeting on the "+string(this.mDate, 2)+" " : "You've been invited by "+(this.createdBy.fullname)+" to a "+(this.type || "")+" meeting on the "+string(this.mDate, 2)+"")
+				output = myMeetings.copy()
+				output.add(this)
+				return output
+			else 
+				webForm.setWarning("An error has occured while saving your meeting!")
+			end 
+	end 
+	return output
+	
+exposed function createTeamsMeeting(accessToken : string) : string
+	var meetingDetails : object
+	var res = 4D.OutgoingMessage.new()
+	
+	meetingDetails = {subject: this.subject, startDateTime: string(this.mDate, kISODateGMT, time(this.startTime)), endDateTime: string(this.mDate, kISODateGMT, time(this.endTime))}
+	
+	var headers = newObject("Authorization", "Bearer "+accessToken+"", "Content-Type", "application/json")
+	
+	var request = 4D.HTTPRequest.new("https://graph.microsoft.com/v1.0/me/onlineMeetings", \
+		{method: "POST", headers: headers, body: meetingDetails})
+	
+	request.wait()
+	
+	if (request.response.status == 201)
+		res.setBody("Meeting created! Join URL: "+request.response.body.joinUrl)
+		return request.response.body.joinUrl
+	else 
+		res.setBody("Error creating meeting: "+request.response.body)
+		res.setStatus(400)
+	end 

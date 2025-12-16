@@ -1,0 +1,116 @@
+extends Entity
+
+local function aws()->result : object
+	result = null
+	if (session.storage.users == null)
+		ds.Employee.getCurrentUser()
+	end 
+	if (session.storage.users != null)
+		result = session.storage.users.query("email = :1", this.email).at(0)
+	end 
+	
+exposed function get firstname()->firstname : string
+	var aws : object
+	firstname = ""
+	aws = this.aws()
+	if (aws != null)
+		firstname = aws.firstname
+	end 
+	
+exposed function get lastname()->lastname : string
+	var aws : object
+	lastname = ""
+	aws = this.aws()
+	if (aws != null)
+		lastname = aws.lastname
+	end 
+	
+exposed function get role()->role : string
+	var aws : object
+	role = ""
+	aws = this.aws()
+	if (aws != null)
+		role = aws.role
+	end 
+	
+exposed function get fullname()->fullName : string
+	fullName = (this.firstname && this.lastname) ? (this.firstname+" "+uppercase(this.lastname, *)) : (uppercase(this.lastname, *) || this.firstname) || ""
+	
+exposed function get onSite()->result : integer
+	var status : cs.StatusSelection
+	var obj : object
+	var startDate : date = (storage.filterDate != null) ? storage.filterDate.startDate : currentDate()
+	var endDate : date = (storage.filterDate != null) ? storage.filterDate.endDate : addToDate(currentDate(), 0, 0, 7)
+	status = this.status.query("sDate >= :1 & sDate <= :2", startDate, endDate)
+	result = (status.length != 0) ? (status.query("label = :1", "onSite").length/status.length)*100 : 0
+	
+exposed function get remote()->result : integer
+	var status : cs.StatusSelection
+	var obj : object
+	var startDate : date = (storage.filterDate != null) ? storage.filterDate.startDate : currentDate()
+	var endDate : date = (storage.filterDate != null) ? storage.filterDate.endDate : addToDate(currentDate(), 0, 0, 7)
+	status = this.status.query("sDate >= :1 & sDate <= :2", startDate, endDate)
+	result = (status.length != 0) ? (status.query("label = :1", "remote").length/status.length)*100 : 0
+	
+exposed function get vacay()->result : integer
+	var status : cs.StatusSelection
+	var obj : object
+	var startDate : date = (storage.filterDate != null) ? storage.filterDate.startDate : currentDate()
+	var endDate : date = (storage.filterDate != null) ? storage.filterDate.endDate : addToDate(currentDate(), 0, 0, 7)
+	status = this.status.query("sDate >= :1 & sDate <= :2", startDate, endDate)
+	result = (status.length != 0) ? (status.query("label = :1", "vacay").length/status.length)*100 : 0
+	
+exposed function get sick()->result : integer
+	var status : cs.StatusSelection
+	var obj : object
+	var startDate : date = (storage.filterDate != null) ? storage.filterDate.startDate : currentDate()
+	var endDate : date = (storage.filterDate != null) ? storage.filterDate.endDate : addToDate(currentDate(), 0, 0, 7)
+	status = this.status.query("sDate >= :1 & sDate <= :2", startDate, endDate)
+	result = (status.length != 0) ? (status.query("label = :1", "sick").length/status.length)*100 : 0
+	
+exposed function get onSiteDays() : integer  //to get the employee's presence by days
+	var startDate : date = (storage.filterDate != null) ? storage.filterDate.startDate : currentDate()
+	var endDate : date = (storage.filterDate != null) ? storage.filterDate.endDate : addToDate(currentDate(), 0, 0, 7)
+	if (this.status != null)
+		return this.status.query("sDate >= :1 & sDate <= :2 & label = onSite", startDate, endDate).length
+	else 
+		return 0
+	end 
+	
+exposed function get remoteDays() : integer
+	var startDate : date = (storage.filterDate != null) ? storage.filterDate.startDate : currentDate()
+	var endDate : date = (storage.filterDate != null) ? storage.filterDate.endDate : addToDate(currentDate(), 0, 0, 7)
+	if (this.status != null)
+		return this.status.query("sDate >= :1 & sDate <= :2 & label = remote", startDate, endDate).length
+	else 
+		return 0
+	end 
+	
+exposed function get vacayDays() : integer
+	var startDate : date = (storage.filterDate != null) ? storage.filterDate.startDate : currentDate()
+	var endDate : date = (storage.filterDate != null) ? storage.filterDate.endDate : addToDate(currentDate(), 0, 0, 7)
+	if (this.status != null)
+		return this.status.query("sDate >= :1 & sDate <= :2 & label = vacay", startDate, endDate).length
+	else 
+		return 0
+	end 
+	
+exposed function get sickDays() : integer
+	var startDate : date = (storage.filterDate != null) ? storage.filterDate.startDate : currentDate()
+	var endDate : date = (storage.filterDate != null) ? storage.filterDate.endDate : addToDate(currentDate(), 0, 0, 7)
+	if (this.status != null)
+		return this.status.query("sDate >= :1 & sDate <= :2 & label = sick", startDate, endDate).length
+	else 
+		return 0
+	end 
+	
+exposed Function get dontHaveTeam()-> isNew : boolean
+		isNew=(This.team==null)
+	
+exposed function getStatusByMonth(param : variant)->status : cs.StatusEntity
+	var formulaObject : object
+	var myParams : collection
+	myParams = (param.value != null) ? splitString(param.value, "/") : ""
+	myParams = myParams.map(formula(num($1.value)))
+	formulaObject = formula((monthOf(this.sDate) == myParams.at(0)) && (yearOf(this.sDate) == myParams.at(1)))
+	return (param.value != null) ? ((myParams.length == 2) ? this.status.query(formulaObject) : null) : this.status

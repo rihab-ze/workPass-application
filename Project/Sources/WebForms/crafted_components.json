@@ -1,0 +1,242 @@
+[
+	{
+		"id": "s28XH4ixsB4S8ms3n4qX26",
+		"rootNodeId": "eXvjIViPmj",
+		"nodes": {
+			"eXvjIViPmj": {
+				"type": {
+					"resolvedName": "Button"
+				},
+				"isCanvas": false,
+				"props": {
+					"text": "Planning",
+					"classNames": [],
+					"events": [
+						{
+							"type": "simple-action",
+							"id": "uVSnKUDEjya8mFnynVo9YR",
+							"events": [
+								"onclick"
+							],
+							"action": "",
+							"actionType": "state",
+							"datasource": {
+								"name": ""
+							},
+							"state": {
+								"action": "delete",
+								"states": [
+									"chnMXaSrYfXcSogGaYAViE"
+								]
+							}
+						},
+						{
+							"type": "simple-action",
+							"id": "twNdcwDAx5gVcaJVNqJJzm",
+							"events": [
+								"onclick"
+							],
+							"action": "query",
+							"actionType": "datasource",
+							"datasource": {
+								"name": "myMeetings",
+								"type": "entitysel",
+								"from": "",
+								"namespace": "shared"
+							},
+							"query": {
+								"query": "participations.employee.UUID  == :1 ",
+								"params": [
+									{
+										"id": "5m7iTMYHAqenq8U3zaYNYV",
+										"datasource": "shared:currentUser.UUID"
+									}
+								]
+							},
+							"feedback": {
+								"enabled": false
+							},
+							"disabled": false
+						}
+					],
+					"iconPosition": "hidden",
+					"style": {
+						"display": "flex",
+						"color": " #2E59BD",
+						"backgroundColor": "transparent",
+						"fontSize": "24px",
+						"fontWeight": "700",
+						"textAlign": "start",
+						"borderBottomWidth": "2px",
+						"borderBottomColor": " #2E59BD",
+						"borderRadius": "0px"
+					}
+				},
+				"displayName": "Button",
+				"custom": {
+					"states:chnMXaSrYfXcSogGaYAViE": {
+						"style": {
+							"color": " #B2B6C6 ",
+							"borderBottomWidth": "",
+							"borderBottomColor": ""
+						}
+					}
+				},
+				"parent": "k58gh7rMrM",
+				"hidden": false,
+				"nodes": [],
+				"linkedNodes": {
+					"icon": "AyxVGB55Ux"
+				}
+			},
+			"AyxVGB55Ux": {
+				"type": {
+					"resolvedName": "Icon"
+				},
+				"isCanvas": false,
+				"props": {
+					"classNames": [],
+					"events": [],
+					"icon": "fa-regular fa-star"
+				},
+				"displayName": "Icon",
+				"custom": {},
+				"parent": "eXvjIViPmj",
+				"hidden": false,
+				"nodes": [],
+				"linkedNodes": {}
+			}
+		},
+		"styles": [],
+		"name": "Button_selected",
+		"icon": "fa-star"
+	},
+	{
+		"id": "qoWzYxbNWrMLpJw4VZddkY",
+		"rootNodeId": "yqPMDUmBL9",
+		"nodes": {
+			"yqPMDUmBL9": {
+				"type": {
+					"resolvedName": "Button"
+				},
+				"isCanvas": false,
+				"props": {
+					"text": "Meeting Rooms",
+					"classNames": [],
+					"events": [
+						{
+							"type": "simple-action",
+							"id": "wLMxQ2YuDXas81cmHQtHNo",
+							"events": [
+								"onclick"
+							],
+							"action": "",
+							"actionType": "state",
+							"datasource": {
+								"name": ""
+							},
+							"state": {
+								"action": "add",
+								"states": [
+									"chnMXaSrYfXcSogGaYAViE"
+								]
+							}
+						},
+						{
+							"type": "simple-action",
+							"id": "uNEiwvb4fxabUcvrSQxFoG",
+							"events": [
+								"onclick"
+							],
+							"action": "query",
+							"actionType": "datasource",
+							"datasource": {
+								"name": "myOnsiteMeetings",
+								"type": "entitysel",
+								"from": "",
+								"namespace": "shared"
+							},
+							"query": {
+								"query": "participations.employee.UUID  == :1 && type == 'onSite'",
+								"params": [
+									{
+										"id": "5m7iTMYHAqenq8U3zaYNYV",
+										"datasource": "shared:currentUser.UUID"
+									}
+								]
+							},
+							"feedback": {
+								"enabled": false
+							},
+							"disabled": false
+						},
+						{
+							"type": "method",
+							"dataclass": "MeetingSelection",
+							"events": [
+								"onclick"
+							],
+							"id": "r23MnBNmYsi4sjzjUdpvga",
+							"method": "myOnsiteMeetings.TodayMeeting",
+							"params": [],
+							"namespace": "shared",
+							"datasource": "",
+							"returns": {
+								"name": "TodayMeeting",
+								"type": "cs.MeetingEntity",
+								"datasource": "shared:onSiteMeeting"
+							}
+						}
+					],
+					"iconPosition": "hidden",
+					"style": {
+						"display": "flex",
+						"color": " #B2B6C6",
+						"backgroundColor": "transparent",
+						"fontSize": "24px",
+						"fontWeight": "700",
+						"textAlign": "start"
+					}
+				},
+				"displayName": "Button",
+				"custom": {
+					"states:chnMXaSrYfXcSogGaYAViE": {
+						"style": {
+							"color": "#2E59BD",
+							"borderWidth": "",
+							"borderBottomWidth": "2px",
+							"borderBottomColor": "#2E59BD",
+							"borderRadius": "0px"
+						}
+					}
+				},
+				"parent": "k58gh7rMrM",
+				"hidden": false,
+				"nodes": [],
+				"linkedNodes": {
+					"icon": "zc2bh3IaRp"
+				}
+			},
+			"zc2bh3IaRp": {
+				"type": {
+					"resolvedName": "Icon"
+				},
+				"isCanvas": false,
+				"props": {
+					"classNames": [],
+					"events": [],
+					"icon": "fa-regular fa-star"
+				},
+				"displayName": "Icon",
+				"custom": {},
+				"parent": "yqPMDUmBL9",
+				"hidden": false,
+				"nodes": [],
+				"linkedNodes": {}
+			}
+		},
+		"styles": [],
+		"name": "Button_normal",
+		"icon": "fa-star"
+	}
+]

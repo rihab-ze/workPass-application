@@ -1,0 +1,40 @@
+var error : object
+var obj : object
+var startUpExists : boolean
+var myWebServer : object = webServer
+var settings : object = {}
+
+try
+	// Starts the web server with the session cookie Lax
+	settings.sessionCookieSameSite = "Lax"
+	myWebServer.start(settings)
+catch
+	logEvent("Could not start web server", kErrorMessage)
+	forEach (error, lastErrors)
+		logEvent("The error is "+string(error.errCode)+" - "+error.message, kErrorMessage)
+	end 
+end
+
+try
+	//Check if the singleton exists
+	if (cs.QodlyEvents == null)
+		logEvent("The singleton cs.QodlyEvents does not exist", kErrorMessage)
+	else 
+		//Check if the onStartup function exists
+		obj = cs.QodlyEvents.new()
+		startUpExists = objectIsDefined(obj, "onStartup")
+		if (startUpExists == false)
+			logEvent("The singleton cs.QodlyEvents function onStartup does not exist", kErrorMessage)
+		else
+			cs.QodlyEvents.me.onStartup()
+		end 
+	end 
+
+catch
+	logEvent("Error at startup", kErrorMessage)
+	
+	forEach (error, lastErrors)
+		logEvent("The error is "+string(error.errCode)+" - "+error.message, kErrorMessage)
+	end 
+	
+end

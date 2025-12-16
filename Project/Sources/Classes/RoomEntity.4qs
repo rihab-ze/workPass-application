@@ -1,0 +1,16 @@
+extends Entity
+
+exposed Alias onSitePeople employees.status
+
+exposed Function get occupied()-> result: integer// based on the employees status get the rooms.employees.statuses.onSite
+	var onsiteStatus:cs.StatusSelection
+	var currentStatus:cs.StatusSelection
+	var obj:object
+	var startDate : Date =  storage ? storage.filterDate.startDate : currentDate()
+	var endDate : Date =  storage ? storage.filterDate.endDate : addToDate(currentDate(),0,0,7)
+	onsiteStatus=this.onSitePeople.query("sDate >= :1 & sDate <= :2 and label = :3",startDate,endDate,"onSite")
+	currentStatus=this.employees.status.query("sDate >= :1 & sDate <= :2 ",startDate,endDate)
+	result=(onsiteStatus.length!=0) ? round((onsiteStatus.length)/(currentStatus.length)*100,2) : 0
+
+exposed Function get free()-> result: integer
+	result=100-this.occupied

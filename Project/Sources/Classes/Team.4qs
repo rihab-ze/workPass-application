@@ -1,0 +1,19 @@
+extends DataClass
+ 
+function event restrict() -> result : cs.SettingSelection
+	switch
+		: (session.hasPrivilege("Admin"))
+			return null
+		: (session.hasPrivilege("Employees"))
+			return this.newSelection()
+		: (session.hasPrivilege("Manager"))
+			return this.query("manager.UUID = :1", ds.Employee.getCurrentUser().UUID)
+	end
+
+exposed function getByTitle(search : string) : cs.TeamSelection
+	if (search == null || search == "") // do we need both of those conditions
+		return this.all()
+	else 
+		return this.query("title = :1", "@"+search+"@")
+	end 
+

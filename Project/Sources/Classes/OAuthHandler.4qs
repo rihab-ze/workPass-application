@@ -1,0 +1,80 @@
+shared singleton constructor()
+	
+function encodeURI(text : string)
+	text = replaceString(text, "/", "%2F")  // / backslash
+	text = replaceString(text, "?", "%3F")  // ? question mark
+	text = replaceString(text, ":", "%3A")  // : colon
+	text = replaceString(text, "@", "%40")  // @ at
+	text = replaceString(text, "&", "%26")  // & ampersand
+	text = replaceString(text, "=", "%3D")  // = equal
+	text = replaceString(text, "+", "%2B")  // + plus sign
+	text = replaceString(text, ",", "%2C")  // , comma
+	text = replaceString(text, "$", "%24")
+	return text
+	
+function teamsAuthCallback(req : 4D.IncomingMessage) : 4D.OutgoingMessage
+	var meeting : cs.MeetingEntity = ds.Meeting.get(session.storage.createdMeeting.UUID)
+	var token : string
+	var request : 4D.HTTPRequest
+	var res = 4D.OutgoingMessage.new()
+	
+	var clientId : string = ds.Setting.getKey("MICROSOFT_CLIENT_ID")
+	var clientSecret : string = ds.Setting.getKey("MICROSOFT_CLIENT_SECRET")
+	var redirectUri : string = ds.Setting.getKey("MICROSOFT_REDIRECT_URI")
+	var tenantId : string = ds.Setting.getKey("MICROSOFT_TENANT_ID")
+	var tokenUrl = "https://login.microsoftonline.com/"+tenantId+"/oauth2/v2.0/token"
+	
+	if (req.urlQuery.error != null)
+		res.setBody("Error: "+req.urlQuery.error)
+		res.setStatus(400)
+		return res
+	end 
+	
+	var headers = newObject("Content-Type", "application/x-www-form-urlencoded")
+	var body = "client_id="+clientId
+	body += "&client_secret="+clientSecret
+	body += "&grant_type=authorization_code"
+	body += "&code="+req.urlQuery.code
+	body += "&redirect_uri="+redirectUri
+	request = 4D.HTTPRequest.new(tokenUrl, {method: "POST", headers: headers, body: body})
+	request.wait()
+	
+	if (request.response.status != 200)
+		res.setBody("Error getting token: "+request.response.body)
+		res.setStatus(400)
+		return res
+	end 
+	use(storage)
+		storage.code = newSharedObject("code",req.urlQuery.code)
+	 end
+	
+	token = request.response.body.access_token
+	meeting.link = meeting.createTeamsMeeting(token)
+	meeting.save()
+	
+	res.setStatus(302)
+	res.setHeader("Location", "/$lib/renderer?w=index")
+	
+	return res
+	
+function teamsAuth(rep : 4D.IncomingMessage) : 4D.OutgoingMessage
+	var res = 4D.OutgoingMessage.new()
+	var url = ""
+	var clientId : string = ds.Setting.getKey("MICROSOFT_CLIENT_ID")
+	var redirectUri : string = ds.Setting.getKey("MICROSOFT_REDIRECT_URI")
+	var tenantId : string = ds.Setting.getKey("MICROSOFT_TENANT_ID")
+	var scope = "OnlineMeetings.ReadWrite openid profile offline_access"
+	
+	var authUrl = "https://login.microsoftonline.com/"+tenantId+"/oauth2/v2.0/authorize"
+	authUrl += "?client_id="+clientId
+	authUrl += "&response_type=code"
+	authUrl += "&redirect_uri="+redirectUri
+	authUrl += "&scope="+this.encodeURI(scope)
+	authUrl += "&response_mode=query"
+	
+	res.setStatus(302)
+	res.setHeader("Location", authUrl)
+	
+	return res
+	
+	

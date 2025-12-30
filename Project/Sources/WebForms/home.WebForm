@@ -615,16 +615,15 @@
 						"events": [
 							"onclick"
 						],
-						"id": "9Xz1MSvHHy2YWCCoZEbrf3",
-						"method": "ds.generateDate",
+						"id": "9Z5cSNdLoRL2X3yVFRqF3k",
+						"method": "ds.generateData",
 						"params": [],
 						"datasource": "",
 						"allowedOnHTTPGET": false,
 						"returns": {
 							"name": "result",
 							"type": "Variable"
-						},
-						"feedback": true
+						}
 					}
 				],
 				"classNames": [

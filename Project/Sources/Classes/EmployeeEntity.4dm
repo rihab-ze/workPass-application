@@ -1,14 +1,5 @@
 Class extends Entity
 
-//local Function $aws()->$result : Object
-//$result:=Null
-//If (Session.storage.users=Null)
-//ds.Employee.getCurrentUser()
-//End if 
-//If (Session.storage.users#Null)
-//$result:=Session.storage.users.query("email = :1"; This.email).at(0)
-//End if 
-
 exposed Function get fullname()->$fullName : Text
 	$fullName:=(This:C1470.firstname && This:C1470.lastname) ? (This:C1470.firstname+" "+Uppercase:C13(This:C1470.lastname; *)) : (Uppercase:C13(This:C1470.lastname; *) || This:C1470.firstname) || ""
 	

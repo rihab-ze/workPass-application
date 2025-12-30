@@ -11,6 +11,7 @@ Function event restrict()->$result : cs:C1710.StatusSelection
 			return This:C1470.query("employee.UUID = :1 or employee.team.manager.UUID = :1"; ds:C1482.Employee.getCurrentUser().UUID)
 	End case 
 	
+	//Assign on-site or remote status to employees 
 exposed Function applyStatus($sDate : Date; $eDate : Date; $onSiteEmployees : cs:C1710.EmployeeSelection; $remoteEmployees : cs:C1710.EmployeeSelection)
 	var $employee : cs:C1710.EmployeeEntity
 	var $dates : Collection:=New collection:C1472($sDate; $eDate)

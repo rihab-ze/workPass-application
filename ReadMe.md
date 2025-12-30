@@ -1,17 +1,14 @@
 # wrkPass Application
+This demo app is built with 4D Qodly Pro and is meant to inspire you or help you kickstart your own project.
 
-## 🎯 Purpose of the Application
+## Purpose of the Application
 
 wrkPass is an all-in-one telecommuting solution designed to streamline the coordination of remote, hybrid, and onsite work.
 The application allows employees to declare their work status, schedule meetings that match their availability mode, and maintain fluid communication between teams and managers. It simplifies workforce organization and ensures smooth collaboration across distributed environments.
 
 ![Dashboard](Project/Sources/Shared/visuals/dashboard.png)
 
----
-
-## 🧩 What the Application Covers
-
-### 🏠 Main Features
+## Main Features
 
 - Interactive dashboard for viewing and managing work statuses
 - Dedicated pages for creating, viewing, and managing meetings
@@ -27,61 +24,50 @@ The application allows employees to declare their work status, schedule meetings
 
 - Secure, role-based access ensuring proper visibility and permissions
 
----
-
-### 👥 User Roles
-
-
-- **Admin**  
-Full control over the application. Can manage all users, all meetings, all statuses, and global configuration settings. Has unrestricted access across the platform.
-
-- **Manager**
-Can manage only their own meetings and the meetings of their team members.
-Can view and manage team statuses, approve or monitor team availability, and coordinate schedules efficiently.
-
-- **Employee**
-Can declare their work status (remote, hybrid, onsite) and view their own meeting schedule and status history.
-Does not have access to manage others’ data.
-
----
-
-
-## 🚀 How to Integrate and Use the Application
-
-### 1. Clone or Import the Template
-
-Download or clone the project from the Github project link : ###.
-
-### 2. Configure Credentials
-To enable all features in the application, credentials for external communication and collaboration services must be configured in the credentials page located in the Settings section.
-
-
-### 3. Launch the Application
-To access and start using the application, open the project in Qodly Studio and run the application.
-
-You can choose your preferred starting page depending on your workflow:
-- Set the starting page to home if you want an overview of the entire application and its features.
-- Set the starting page to startPage if you want to land directly on the login process.
+## How to run
  
-Open the project in **Qodly Studio** and run the application.  
-Explore the different pages to see all available features.
+###  Pre-requisites (4D Software):
+- Download the latest Release version of 4D: [Product Download](https://us.4d.com/product-download/Feature-Release)
+- Or the latest Beta version: [Beta Program](https://discuss.4d.com/)
+- Follow activation steps: [Installation Guide](https://developer.4d.com/docs/GettingStarted/installation)
+ 
+### Steps to Run the Project
+- Clone or download this repository to your local machine. Need help? See Using GitHub with 4D.
+- Open the project in 4D: Go to File > Open Project (More details here: Open a Project)
+- Open Qodly Studio: Go to Design > Qodly Studio menu
+- Run the application: Click Run to start the server and preview the app in your browser
+ 
+## Configuration & Credentials
+ 
+This section explains exactly how to wire credentials and test the app (what to create, where to place files, and what the app already provides).
 
-### 4. Test With Different Roles
-Log in using predefined test accounts or create new ones to test role behavior:
+### Do I need to create external accounts?
+  - Microsoft Teams / Meetings: Yes — to enable automatic meeting creation, the application must be connected to Microsoft Azure / Microsoft Graph.
 
-- **Admin**
-- **Manager**
-- **Employee**
+        - You need to register an application in Azure Active Directory and grant it permission to create Teams meetings on behalf of users or as an application.
 
-Each role will present different permissions and interface options.
+    - Example (Microsoft Graph – Teams Meetings)
+        - Tenant ID: `your Azure tenant ID`
+        - Client ID: `your Azure application (client) ID`
+        - Client Secret: `your Azure application secret`
+        - Authority: https://login.microsoftonline.com/`tenant-id`
+        - Scope: https://graph.microsoft.com/.default 
 
-### 5. Customize as Needed
+### Where does the app read credentials?
+- Credentials are configured via the **Credentials** page located in the Settings section.
+- External service keys and secrets are stored and accessed through the database.
 
-Feel free to extend the application according to your needs:
+### How to test Teams meeting locally
+Provide Microsoft Graph credentials, then trigger a Teams meeting creation action to test the integration locally.
+ 
+## Test accounts and sample data
 
-- Modify or expand the **data model**
-- Add or redesign **UI elements**
-- Implement new **custom components**
-- Enhance or change the **business logic** (e.g., approval flow, notifications)
+  - The app includes a data generator `Project/Sources/Classes/data.4dm` which creates sample users with known emails and passwords as well as related demo data. You can call it from the UI (home.WebForm) or run `ds.generateData()` in the server console.
 
+## Where to find the code for each feature
 
+If you want to change the behavior or appearance of a specific feature, edit the files listed below.
+
+- Authentication / Login
+  - Code: `Project/Sources/Classes/DataStore.4dm` (method: `authentify`) — handles login, session privileges and landing page routing.
+  - UI: `Project/Sources/WebForms/login.WebForm` 

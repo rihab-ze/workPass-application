@@ -17,11 +17,9 @@ exposed Function authentify($login : Text; $psw : Text) : Boolean
 			Web Form:C1735.setMessage("Login successfull")
 		Else 
 			Web Form:C1735.setError("Unknown User")
-			//throw({message: "Unknown User"})
 		End if 
 	Else 
 		Web Form:C1735.setError("Unknown User")
-		//throw({message: "Unknown User"})
 	End if 
 	
 exposed Function currentDate()->$crtDate : Text
@@ -31,6 +29,7 @@ exposed Function getRangeDate($sDate; $eDate)->$rangeDate : Collection
 	$rangeDate:=[]
 	$rangeDate.push($sDate; $eDate)
 	
+	//Initializes the global date filter, defaulting to the current month if no dates are provided.
 exposed Function initDate($startDate : Date; $endDate : Date)->$result : Object
 	var $varDate; $firstDayMonth; $lastDayMonth : Date
 	var $currentDay : Integer
@@ -52,6 +51,7 @@ exposed Function initDate($startDate : Date; $endDate : Date)->$result : Object
 		$result:=Storage:C1525.filterDate
 	End if 
 	
+	//Load country names from a local JSON file for UI selections.
 exposed Function getCountries() : Collection
 	var $jsonFile : 4D:C1709.File
 	var $text : Text
@@ -65,6 +65,7 @@ exposed Function getCountries() : Collection
 	$countries:=$fileContent.map($formulaCol)
 	return $countries
 	
+	//Resolve the selected country based on the local entity value
 exposed Function selectedLocalCountry($local : cs:C1710.LocalEntity) : Object
 	var $countries : Collection
 	$countries:=This:C1470.getCountries()
@@ -77,7 +78,7 @@ exposed Function getManifestObject() : Object
 	$manifestObject:=JSON Parse:C1218($manifestFile.getText())
 	return $manifestObject
 	
-exposed Function generateDate()
+exposed Function generateData()
 	var $generateData : cs:C1710.data:=cs:C1710.data.new()
 	$generateData.dropData()
 	$generateData.createData()

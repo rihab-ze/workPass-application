@@ -71,3 +71,11 @@ If you want to change the behavior or appearance of a specific feature, edit the
 - Authentication / Login
   - Code: `Project/Sources/Classes/DataStore.4dm` (method: `authentify`) — handles login, session privileges and landing page routing.
   - UI: `Project/Sources/WebForms/login.WebForm` 
+
+- Role-Based Access and Permissions
+  - Config: `Project/Sources/roles.json` (role definitions).
+  - Code: `Project/Sources/Classes/DataStore.4dm` (authentication and access control methods).
+
+- Microsoft Teams / Meetings Integration
+  - UI: `Project/Sources/WebForms/credentials.WebForm` (credential setup).
+  - Code: `Project/Sources/Classes/OAuthHandler.4dm` (OAuth and API integration for Teams meetings).

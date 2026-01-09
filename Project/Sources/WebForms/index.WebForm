@@ -4259,7 +4259,7 @@
 						"type": "paragraph",
 						"children": [
 							{
-								"text": "Settings",
+								"text": "Logout",
 								"bold": false,
 								"italic": false,
 								"underlined": false,
@@ -4290,7 +4290,11 @@
 				"iterableChild": true
 			},
 			"displayName": "Text",
-			"custom": {},
+			"custom": {
+				"__t": {
+					"doc": []
+				}
+			},
 			"parent": "nYhpZKrZFo",
 			"hidden": false,
 			"nodes": [],

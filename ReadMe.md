@@ -44,7 +44,7 @@ This section explains exactly how to wire credentials and test the app (what to 
 ### Do I need to create external accounts?
   - Microsoft Teams / Meetings: Yes — to enable automatic meeting creation, the application must be connected to Microsoft Azure / Microsoft Graph.
 
-        - You need to register an application in Azure Active Directory and grant it permission to create Teams meetings on behalf of users or as an application.
+      - You need to register an application in Azure Active Directory and grant it permission to create Teams meetings on behalf of users or as an application.
 
     - Example (Microsoft Graph – Teams Meetings)
         - Tenant ID: `your Azure tenant ID`

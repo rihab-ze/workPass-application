@@ -63,7 +63,9 @@ Provide Microsoft Graph credentials, then trigger a Teams meeting creation actio
 ## Test accounts and sample data
 
   - The app includes a data generator `Project/Sources/Classes/data.4dm` which creates sample users with known emails and passwords as well as related demo data. You can call it from the UI (home.WebForm) or run `ds.generateData()` in the server console.
-
+  - To test the login, you can use the following credentials:
+      - Email: john.doe@gmail.com
+      - Password: John
 ## Where to find the code for each feature
 
 If you want to change the behavior or appearance of a specific feature, edit the files listed below.

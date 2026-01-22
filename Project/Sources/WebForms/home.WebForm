@@ -623,7 +623,8 @@
 						"returns": {
 							"name": "result",
 							"type": "Variable"
-						}
+						},
+						"feedback": true
 					}
 				],
 				"classNames": [

@@ -29,7 +29,6 @@ Function createData()
 	This:C1470.newFloor()
 	This:C1470.newRoom()
 	This:C1470.newTeam()
-	//This.newEmployee()
 	This:C1470.generateFakeUsers()
 	This:C1470.linkEmployeeToTeam()
 	This:C1470.linkEmployeeToRoom()
@@ -235,7 +234,7 @@ Function newMeeting()
 				$meeting.startTime:=?10:00:00?
 				$meeting.endTime:=?11:00:00?
 				$meeting.save()
-				// this.newParticipatiant($meeting, $employee.team.employees)
+				This:C1470.newParticipatiant($meeting; $employee.team.employees)
 			End if 
 			$startDate+=(Random:C100%2=0) ? 2 : 3
 		End while 
@@ -365,11 +364,9 @@ Function newActivities()
 	End for each 
 	
 Function newParticipatiant($meeting : cs:C1710.MeetingEntity; $employees : cs:C1710.EmployeeSelection)
-	
 	var $employee : cs:C1710.EmployeeEntity
 	var $notification : cs:C1710.NoticeEntity
 	var $part : cs:C1710.ParticipationEntity
-	
 	For each ($employee; $employees)
 		$part:=ds:C1482.Participation.new()
 		$part.employee:=$employee
